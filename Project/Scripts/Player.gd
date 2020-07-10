@@ -17,6 +17,6 @@ func get_input():
 	if Input.is_action_pressed("move_right"):
 		velocity += Vector2(speed, 0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
