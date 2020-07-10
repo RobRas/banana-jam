@@ -10,6 +10,7 @@ radius = 7.25227
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
+kill_time = 3.0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
