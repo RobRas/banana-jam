@@ -8,11 +8,10 @@
 [node name="Shotgun" instance=ExtResource( 1 )]
 bullet_speed = 1000.0
 
-[node name="MouseClick" parent="." index="0" instance=ExtResource( 2 )]
-cooldown = 0.8
+[node name="MouseTargetting" parent="." index="0" instance=ExtResource( 4 )]
 
-[node name="MouseTargetting" parent="." index="1" instance=ExtResource( 4 )]
-
-[node name="ShootSpread" parent="." index="2" instance=ExtResource( 3 )]
+[node name="ShootSpread" parent="." index="1" instance=ExtResource( 3 )]
 targetting_path = NodePath("../MouseTargetting")
+
+[node name="MouseClick" parent="." index="2" instance=ExtResource( 2 )]
 [connection signal="shot_input" from="MouseClick" to="ShootSpread" method="_on_shot_input"]

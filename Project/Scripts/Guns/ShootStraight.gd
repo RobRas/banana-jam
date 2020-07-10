@@ -20,5 +20,5 @@ func shoot(bullet_speed):
 	bullet.init(global_position, bullet_velocity)
 
 
-func _on_shot_input():
+func _on_shot_input(input_value):
 	shoot(get_parent().bullet_speed)
