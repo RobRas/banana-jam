@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Guns/ Input/MouseHold.tscn" type="PackedScene" id=4]
 
 [node name="Gatling" instance=ExtResource( 1 )]
-bullet_speed = 800.0
+bullet_speed = 1200.0
 
 [node name="MouseHold" parent="." index="0" instance=ExtResource( 4 )]
 
