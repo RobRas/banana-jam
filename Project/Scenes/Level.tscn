@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Baddie.tscn" type="PackedScene" id=3]
 
 [node name="Level" type="Node2D" groups=[
 "World",
 ]]
 script = ExtResource( 1 )
+Baddie = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+speed = 200
+
+[node name="Baddie" parent="." instance=ExtResource( 3 )]
+
+[node name="BaddieSpawnTimer" type="Timer" parent="."]
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="timeout" from="BaddieSpawnTimer" to="." method="_on_BaddieSpawnTimer_timeout"]
