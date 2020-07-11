@@ -15,4 +15,6 @@ func _on_player_shot(bullet):
 func _on_BaddieSpawnTimer_timeout():
 	var baddie = Baddie.instance()
 	add_child(baddie)
-	baddie.position
+	baddie.player = $Player
+	# Needs better spawning positional logic later
+	baddie.position = Vector2($Player.position.x + 300, $Player.position.y + 300)

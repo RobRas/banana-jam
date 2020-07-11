@@ -10,11 +10,15 @@
 script = ExtResource( 1 )
 Baddie = ExtResource( 3 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." groups=[
+"player",
+] instance=ExtResource( 2 )]
 
 [node name="Baddie" parent="." instance=ExtResource( 3 )]
+position = Vector2( 181, -95 )
 
 [node name="BaddieSpawnTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="Bullets" type="Node2D" parent="."]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]

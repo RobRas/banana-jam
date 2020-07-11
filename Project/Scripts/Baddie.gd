@@ -13,5 +13,9 @@ func _physics_process(_delta):
 		_velocity = position.direction_to(player.position) * _run_speed
 	_velocity = move_and_slide(_velocity)
 
-func _on_VisibilityNotifier2D_screen_exited():
-	queue_free() # Remove if it leaves screen somehow
+#func _on_VisibilityNotifier2D_screen_exited():
+#	queue_free() # Remove if it leaves screen somehow
+
+
+func _on_Area2D_body_entered(body):
+	queue_free()
