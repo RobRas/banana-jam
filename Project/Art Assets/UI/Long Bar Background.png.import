@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Baud Boi.png-b023e98d7a24d66d359da6a9bf9a4ef2.stex"
+path="res://.import/Long Bar Background.png-8023c23753639ba0255df2af659ab80e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Monsters/Baud Boi.png"
-dest_files=[ "res://.import/Baud Boi.png-b023e98d7a24d66d359da6a9bf9a4ef2.stex" ]
+source_file="res://Art Assets/UI/Long Bar Background.png"
+dest_files=[ "res://.import/Long Bar Background.png-8023c23753639ba0255df2af659ab80e.stex" ]
 
 [params]
 

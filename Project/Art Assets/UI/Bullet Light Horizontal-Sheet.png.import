@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Baud Boi.png-b023e98d7a24d66d359da6a9bf9a4ef2.stex"
+path="res://.import/Bullet Light Horizontal-Sheet.png-4533ee47b5f964b565e53b6ed22e0f31.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Monsters/Baud Boi.png"
-dest_files=[ "res://.import/Baud Boi.png-b023e98d7a24d66d359da6a9bf9a4ef2.stex" ]
+source_file="res://Art Assets/UI/Bullet Light Horizontal-Sheet.png"
+dest_files=[ "res://.import/Bullet Light Horizontal-Sheet.png-4533ee47b5f964b565e53b6ed22e0f31.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Baud Boi.png-b023e98d7a24d66d359da6a9bf9a4ef2.stex"
+path="res://.import/Heat Bar Fill.png-18183c323a4fe91b8de910c1a43ea016.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Monsters/Baud Boi.png"
-dest_files=[ "res://.import/Baud Boi.png-b023e98d7a24d66d359da6a9bf9a4ef2.stex" ]
+source_file="res://Art Assets/UI/Heat Bar Fill.png"
+dest_files=[ "res://.import/Heat Bar Fill.png-18183c323a4fe91b8de910c1a43ea016.stex" ]
 
 [params]
 
