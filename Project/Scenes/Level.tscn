@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Art Assets/Audio/MainThemeLoop.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Art Assets/Audio/CriticalOverHeatLoop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Art Assets/Audio/OverHeatLoop.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Scenes/Alert & Heat.tscn" type="PackedScene" id=7]
 
 [node name="Level" type="Node2D" groups=[
 "World",
@@ -35,5 +36,7 @@ stream = ExtResource( 6 )
 
 [node name="Critical OverHeat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Alert & Heat UI" parent="." instance=ExtResource( 7 )]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="BaddieSpawnTimer" to="." method="_on_BaddieSpawnTimer_timeout"]
