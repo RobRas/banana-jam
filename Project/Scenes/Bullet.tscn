@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=2]
@@ -6,8 +6,11 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.25227
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 9.10048
+
 [node name="Bullet" type="KinematicBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
 kill_time = 3.0
@@ -22,4 +25,11 @@ shape = SubResource( 1 )
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="EnemyCollision2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
 [connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
