@@ -3,9 +3,12 @@ extends Node2D
 
 export(float) var cooldown = 0.5
 var _current_cooldown = 0.0
+var _player
 
 signal shot_input(input_value)
 
+func init(player):
+	_player = player
 
 func _process(delta):
 	_current_cooldown -= delta

@@ -3,15 +3,15 @@
 [ext_resource path="res://Scenes/Guns/Gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Guns/ Input/MouseClick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Guns/ShotType/ShootSpread.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Guns/Targetting/MouseTargeting.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Guns/Targetting/ForwardTargetting.tscn" type="PackedScene" id=4]
 
 [node name="Shotgun" instance=ExtResource( 1 )]
 bullet_speed = 1000.0
 
-[node name="MouseTargetting" parent="." index="0" instance=ExtResource( 4 )]
+[node name="ShootSpread" parent="." index="0" instance=ExtResource( 3 )]
+targetting_path = NodePath("../ForwardTargetting")
 
-[node name="ShootSpread" parent="." index="1" instance=ExtResource( 3 )]
-targetting_path = NodePath("../MouseTargetting")
+[node name="MouseClick" parent="." index="1" instance=ExtResource( 2 )]
 
-[node name="MouseClick" parent="." index="2" instance=ExtResource( 2 )]
+[node name="ForwardTargetting" parent="." index="2" instance=ExtResource( 4 )]
 [connection signal="shot_input" from="MouseClick" to="ShootSpread" method="_on_shot_input"]
