@@ -34,3 +34,4 @@ func is_fully_broken():
 
 func _on_shot(bullet):
 	emit_signal("shot", bullet)
+	$GunSound.play()

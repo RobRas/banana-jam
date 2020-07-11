@@ -7,3 +7,5 @@
 script = ExtResource( 1 )
 bullet_scene = ExtResource( 2 )
 bullet_speed = 500.0
+
+[node name="GunSound" type="AudioStreamPlayer2D" parent="."]
