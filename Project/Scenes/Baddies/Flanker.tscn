@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Baddies/Die1Hit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Baddies/CircleApproach.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Guns/EnemySingleShot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[node name="Flanker" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 5 )
+
+[node name="Die1Hit" parent="." index="4" instance=ExtResource( 2 )]
+
+[node name="CircleApproach" type="Node" parent="." index="5"]
+script = ExtResource( 3 )
+
+[node name="EnemySingleShot" parent="." index="6" instance=ExtResource( 4 )]
+[connection signal="area_entered" from="Area2D" to="Die1Hit" method="_on_Area2D_area_entered"]

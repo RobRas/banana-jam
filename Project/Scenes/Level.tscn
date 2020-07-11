@@ -1,28 +1,27 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Baddie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Baddies/Homer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art Assets/Audio/MainThemeLoop.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Art Assets/Audio/CriticalOverHeatLoop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Art Assets/Audio/OverHeatLoop.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Art Assets/Bullets and Missiles/GooBall.png" type="Texture" id=7]
 [ext_resource path="res://Art Assets/Tilemap/DesertBackground.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Baddies/Flanker.tscn" type="PackedScene" id=9]
 
 [node name="Level" type="Node2D" groups=[
 "World",
 ]]
 script = ExtResource( 1 )
-Baddie = ExtResource( 3 )
+Homer = ExtResource( 3 )
+Flanker = ExtResource( 8 )
 
 [node name="Player" parent="." groups=[
 "player",
 ] instance=ExtResource( 2 )]
 
-[node name="Baddie" parent="." instance=ExtResource( 3 )]
-position = Vector2( 181, -95 )
-
-[node name="BaddieSpawnTimer" type="Timer" parent="."]
+[node name="HomerSpawnTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="Bullets" type="Node2D" parent="."]
@@ -57,5 +56,14 @@ scale_amount = 0.5
 show_behind_parent = true
 position = Vector2( 512.11, 300.303 )
 texture = ExtResource( 8 )
+
+[node name="Homer" parent="." instance=ExtResource( 3 )]
+
+[node name="FlankerSpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Flanker" parent="." instance=ExtResource( 9 )]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
-[connection signal="timeout" from="BaddieSpawnTimer" to="." method="_on_BaddieSpawnTimer_timeout"]
+[connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
+[connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]
