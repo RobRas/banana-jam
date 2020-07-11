@@ -17,7 +17,6 @@ func _on_player_shot(bullet):
 #	hit_count += 1
 
 func _on_enemy_hit(pos):
-	print("herre")
 	var explode = GooExplosion.instance()
 	add_child(explode)
 	explode.position=pos
