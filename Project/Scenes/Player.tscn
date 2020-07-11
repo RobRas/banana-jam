@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
+[ext_resource path="res://Scripts/Player/Abilities/Movement/Movement.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Guns/Shotgun.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Player/Abilities/FaceMouse/FaceMouse.gd" type="Script" id=4]
@@ -9,8 +10,14 @@
 [ext_resource path="res://Scripts/Player/Abilities/FaceMouse/BreakRotationOffset.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Player/Abilities/FaceMouse/BreakRotationStability.gd" type="Script" id=9]
 [ext_resource path="res://Art Assets/Characters/MainMechBoosterOff.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Player/Abilities/Movement/BreakMovementSpeed.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Player/Abilities/Movement/AddGlobalDirectionMovement.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Player/Abilities/Movement/AddFacingDirectionMovement.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Player/Abilities/Movement/BreakMovementFriction.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/Player/Abilities/Movement/BreakMovementAcceleration.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/Player/Abilities/Movement/BreakRandomJump.gd" type="Script" id=16]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
@@ -18,10 +25,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 33.4029, 32.2969 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32.6958, 30.5292 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -41,6 +48,7 @@ forward_path = NodePath("../../Forward")
 
 [node name="BreakRotationSpeed" type="Node2D" parent="Abilities/FaceMouse"]
 script = ExtResource( 6 )
+speed_modifier = 0.4
 
 [node name="BreakRotationDirection" type="Node2D" parent="Abilities/FaceMouse"]
 script = ExtResource( 7 )
@@ -52,23 +60,60 @@ script = ExtResource( 8 )
 scale = Vector2( 1.00763, 1.0266 )
 script = ExtResource( 9 )
 
+[node name="Movement" type="Node2D" parent="Abilities"]
+position = Vector2( 50, 0 )
+script = ExtResource( 1 )
+forward_path = NodePath("../../Forward")
+max_speed = 250.0
+acceleration = 1200.0
+friction = 1200.0
+
+[node name="BreakMovementSpeed" type="Node2D" parent="Abilities/Movement"]
+script = ExtResource( 11 )
+
+[node name="AddGlobalDirectionMovement" type="Node2D" parent="Abilities/Movement"]
+script = ExtResource( 12 )
+
+[node name="AddFacingDirectionMovement" type="Node2D" parent="Abilities/Movement"]
+script = ExtResource( 13 )
+
+[node name="BreakMovementFriction" type="Node2D" parent="Abilities/Movement"]
+script = ExtResource( 14 )
+modifier = 0.02
+
+[node name="BreakMovementAcceleration" type="Node2D" parent="Abilities/Movement"]
+script = ExtResource( 15 )
+
+[node name="RandomJump" type="Node2D" parent="Abilities/Movement"]
+scale = Vector2( 1.10395, 1.19719 )
+script = ExtResource( 16 )
+broken = true
+jump_initial_speed = Vector2( 1400, 1700 )
+jump_cooldown = Vector2( 6, 10 )
+
+[node name="JumpCooldown" type="Timer" parent="Abilities/Movement/RandomJump"]
+wait_time = 4.0
+
+[node name="SpeedTween" type="Tween" parent="Abilities/Movement/RandomJump"]
+
 [node name="Sprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 scale = Vector2( 2, 2 )
-frames = SubResource( 9 )
+frames = SubResource( 1 )
 animation = "Idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.353577, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 8 )
+shape = SubResource( 3 )
 
 [node name="Shotgun" parent="." instance=ExtResource( 3 )]
+[connection signal="timeout" from="Abilities/Movement/RandomJump/JumpCooldown" to="Abilities/Movement/RandomJump" method="_on_JumpCooldown_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
