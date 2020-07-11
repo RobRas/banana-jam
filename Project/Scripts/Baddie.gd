@@ -16,6 +16,5 @@ func _physics_process(_delta):
 #func _on_VisibilityNotifier2D_screen_exited():
 #	queue_free() # Remove if it leaves screen somehow
 
-
-func _on_Area2D_body_entered(body):
+func _on_Area2D_area_entered(area):
 	queue_free()
