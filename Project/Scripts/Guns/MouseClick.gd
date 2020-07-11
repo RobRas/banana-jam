@@ -15,4 +15,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("shoot") and _current_cooldown <= 0:
 		_current_cooldown = cooldown
 		emit_signal("shot_input", 1)
-		$ShotgunSound.play()
+
+func _on_shot_input():
+	var velocity
+
+func enable():
+	set_process(true)
+
+func disable():
+	set_process(false)

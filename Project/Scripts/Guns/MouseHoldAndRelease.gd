@@ -23,6 +23,7 @@ func _process(delta):
 	
 	if Input.is_action_just_released("shoot"):
 		_current_cooldown = cooldown
+		_current_hold_time = 0.0
 		if _current_hold_time < min_hold_time:
 			pass
 		elif _current_hold_time > max_hold_time:
@@ -31,3 +32,10 @@ func _process(delta):
 			var percent_held = (_current_hold_time - min_hold_time) / (max_hold_time - min_hold_time)
 			percent_held = min(percent_held + forgiveness, 1.0)
 			emit_signal("shot_input", percent_held)
+
+func enable():
+	set_process(true)
+
+func disable():
+	_current_hold_time = 0.0
+	set_process(false)

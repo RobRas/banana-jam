@@ -28,8 +28,7 @@ autostart = true
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -8.0
-autoplay = true
+volume_db = -4.0
 
 [node name="OverHeat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -64,6 +63,9 @@ wait_time = 5.0
 autostart = true
 
 [node name="Flanker" parent="." instance=ExtResource( 9 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
 [connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]

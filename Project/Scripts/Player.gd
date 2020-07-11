@@ -3,11 +3,13 @@ extends KinematicBody2D
 signal hit
 
 var velocity = Vector2()
+var additional_velocity = Vector2()
+var forward
 
 func _ready():
+	forward = $Forward
 	for ability in $Abilities.get_children():
 		ability.init(self)
-	$Shotgun.init(self)
 
 func _process(delta):
 	if velocity.length()>0:
@@ -22,7 +24,7 @@ func _process(delta):
 		$Booster2.emitting=false
 
 func _physics_process(_delta):
-	velocity = move_and_slide(velocity)
+	move_and_slide(velocity + additional_velocity)
 
 
 func _on_Area2D_body_entered(body):

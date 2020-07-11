@@ -2,8 +2,8 @@ extends Node2D
 
 
 export(bool) var broken
-export(float) var max_turn = 8
-export(float) var speed = 400
+export(float) var max_turn = 1.2
+export(float) var speed = 250
 
 var _noise = OpenSimplexNoise.new()
 var _time = 0.0
@@ -24,7 +24,7 @@ func set_broken(broken):
 	_noise.octaves = 3
 	return true
 
-func modify_rotation_angle(delta, angle, total_angle):
+func modify_rotation_angle(delta, angle):
 	if not _broken:
 		return angle
 	
