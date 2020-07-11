@@ -17,7 +17,6 @@ func _on_player_shot(bullet):
 #	hit_count += 1
 
 func _on_enemy_hit(pos):
-	print("herre")
 	var explode = GooExplosion.instance()
 	add_child(explode)
 	explode.position=pos
@@ -57,7 +56,7 @@ func _on_FlankerSpawnTimer_timeout():
 	flanker.position.y = y
 	
 func _shotgun_smoke():
-	var smoke =ShotgunSmoke.instance()
+	var smoke = ShotgunSmoke.instance()
 	add_child(smoke)
 	smoke.position=$Player.position
 	smoke.set_rotation($Player.get_rotation())

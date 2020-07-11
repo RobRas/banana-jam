@@ -1,7 +1,7 @@
 extends Node2D
 
 export(bool) var broken
-export(NodePath) var forward_path
+
 export(float) var max_speed = 250
 export(float) var acceleration = 400
 export(float) var friction = 400
@@ -11,7 +11,10 @@ var _forward
 
 func init(player):
 	_player = player
-	_forward = get_node(forward_path)
+	_forward = _player.forward
+	for child in get_children():
+		if child.has_method("init"):
+			child.init(_player)
 
 func _process(delta):
 	var acceleration_delta = acceleration * delta
@@ -43,6 +46,17 @@ func _process(delta):
 
 
 func _get_input():
+	return _get_input_keyboard()
+
+func _get_input_keyboard():
+	var input_direction = 0
+	if Input.is_action_pressed("move_forward"):
+		input_direction += 1
+	if Input.is_action_pressed("move_backward"):
+		input_direction -= 1
+	return _player.forward.get_forward() * input_direction
+	
+func _get_input_mouse():
 	var input_direction = Vector2()
 	if Input.is_action_pressed("move_down"):
 		input_direction += Vector2(0, 1)

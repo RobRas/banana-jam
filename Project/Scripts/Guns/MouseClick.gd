@@ -19,4 +19,12 @@ func _process(delta):
 		_current_cooldown = cooldown
 		emit_signal("shot_input", 1)
 		emit_signal("smoke_create")
-		$ShotgunSound.play()
+
+func _on_shot_input():
+	var velocity
+
+func enable():
+	set_process(true)
+
+func disable():
+	set_process(false)
