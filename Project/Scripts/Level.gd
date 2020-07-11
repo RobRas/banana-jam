@@ -13,9 +13,16 @@ func _on_player_shot(bullet):
 #func _on_Player_hit():
 #	hit_count += 1
 
+func _on_enemy_hit(pos):
+	$Explosion.position=pos
+	#$Explosion.one_shot=true
+	$Explosion.emitting=true
+	
+
 func _on_BaddieSpawnTimer_timeout():
 	var baddie = Baddie.instance()
 	add_child(baddie)
+	baddie.connect("enemy_hit",self,"_on_enemy_hit")
 	
 	# Not sure if this spawns enemies on screen, or just within a
 	# screen of the player
