@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Art Assets/Audio/CriticalOverHeatLoop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Art Assets/Audio/OverHeatLoop.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Art Assets/Bullets and Missiles/GooBall.png" type="Texture" id=7]
+[ext_resource path="res://Art Assets/Tilemap/DesertBackground.png" type="Texture" id=8]
 
 [node name="Level" type="Node2D" groups=[
 "World",
@@ -28,7 +29,7 @@ autostart = true
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -4.0
+volume_db = -8.0
 autoplay = true
 
 [node name="OverHeat" type="AudioStreamPlayer" parent="."]
@@ -51,5 +52,10 @@ spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 100.0
 scale_amount = 0.5
+
+[node name="Background" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 512.11, 300.303 )
+texture = ExtResource( 8 )
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="BaddieSpawnTimer" to="." method="_on_BaddieSpawnTimer_timeout"]

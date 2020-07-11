@@ -14,11 +14,10 @@ bullet_speed = 1000.0
 [node name="ShootSpread" parent="." index="0" instance=ExtResource( 3 )]
 targetting_path = NodePath("../ForwardTargetting")
 
-[node name="ForwardTargetting" parent="." index="2" instance=ExtResource( 4 )]
+[node name="ForwardTargetting" parent="." index="1" instance=ExtResource( 4 )]
 
 [node name="MouseClick" parent="." index="2" instance=ExtResource( 2 )]
 
 [node name="ShotgunSound" type="AudioStreamPlayer" parent="MouseClick" index="0"]
 stream = ExtResource( 6 )
-volume_db = -6.0
 [connection signal="shot_input" from="MouseClick" to="ShootSpread" method="_on_shot_input"]
