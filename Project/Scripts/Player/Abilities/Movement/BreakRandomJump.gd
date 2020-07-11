@@ -22,9 +22,9 @@ func modify_velocity(velocity, forward):
 func set_broken(broken):
 	if _broken == broken:
 		return false
-	
-	$JumpCooldown.start()
+
 	_broken = broken
+	jump()
 	return true
 
 func is_broken():
@@ -35,6 +35,7 @@ func _on_JumpCooldown_timeout():
 	jump()
 
 func jump():
+	print("Jump")
 	_direction = Vector2(rand_range(-1, 1), rand_range(-1, 1))
 	var jump_speed = rand_range(jump_initial_speed.x, jump_initial_speed.y)
 	$SpeedTween.remove_all()

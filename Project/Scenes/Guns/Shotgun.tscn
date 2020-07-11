@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Guns/Gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Guns/ Input/MouseClick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Guns/ShotType/ShootSpread.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/Targetting/ForwardTargetting.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Bullets/BulletLight.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Art Assets/Audio/Shotgun.wav" type="AudioStream" id=6]
 
 [node name="Shotgun" instance=ExtResource( 1 )]
 bullet_scene = ExtResource( 5 )
@@ -13,7 +14,11 @@ bullet_speed = 1000.0
 [node name="ShootSpread" parent="." index="0" instance=ExtResource( 3 )]
 targetting_path = NodePath("../ForwardTargetting")
 
-[node name="MouseClick" parent="." index="1" instance=ExtResource( 2 )]
-
 [node name="ForwardTargetting" parent="." index="2" instance=ExtResource( 4 )]
+
+[node name="MouseClick" parent="." index="2" instance=ExtResource( 2 )]
+
+[node name="ShotgunSound" type="AudioStreamPlayer" parent="MouseClick" index="0"]
+stream = ExtResource( 6 )
+volume_db = -6.0
 [connection signal="shot_input" from="MouseClick" to="ShootSpread" method="_on_shot_input"]

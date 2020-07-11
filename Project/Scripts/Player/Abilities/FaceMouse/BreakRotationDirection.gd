@@ -22,7 +22,6 @@ func modify_rotation_angle(delta, angle, total_angle):
 		return angle
 	
 	var new_angle = angle
-	print(new_angle)
 	
 	if sign(angle) == _direction:
 		return 0

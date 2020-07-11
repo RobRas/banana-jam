@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Guns/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Guns/ShotType/ShootStraight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Targetting/TargetPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/ Input/3SecTimer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Bullets/BulletEnemy.tscn" type="PackedScene" id=5]
+
+[node name="EnemySingleShot" instance=ExtResource( 1 )]
+bullet_scene = ExtResource( 5 )
+bullet_speed = 300.0
+
+[node name="TargetPlayer" parent="." index="0" instance=ExtResource( 3 )]
+
+[node name="ShootStraight" parent="." index="1" instance=ExtResource( 2 )]
+targetting_path = NodePath("../TargetPlayer")
+
+[node name="3SecTimer" parent="." index="2" instance=ExtResource( 4 )]
+[connection signal="shot_input" from="3SecTimer" to="ShootStraight" method="_on_shot_input"]
