@@ -8,6 +8,8 @@ var _forward
 var _player
 var _turn_speed_rad
 
+var offset = 0
+
 func _ready():
 	set_speed(turn_speed)
 	_forward = get_node(forward_path)
@@ -17,7 +19,7 @@ func init(player):
 
 func _process(delta):
 	var target_direction = (get_global_mouse_position() - _player.global_position).normalized()
-	var total_angle = _forward.get_forward().angle_to(target_direction)
+	var total_angle = _forward.get_forward().angle_to(target_direction) + offset
 	var frame_turn_speed = get_turn_speed_rad() * delta
 	var rotation_angle = clamp(total_angle, -frame_turn_speed, frame_turn_speed)
 	

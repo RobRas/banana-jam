@@ -1,5 +1,6 @@
 extends Node2D
 
+export(bool) var broken
 export(float) var forgiveness = 10
 
 var _broken = false
@@ -9,6 +10,7 @@ var _forgiveness_rad = 0
 
 func _ready():
 	_forgiveness_rad = deg2rad(forgiveness)
+	set_broken(broken)
 
 
 func set_broken(broken):
