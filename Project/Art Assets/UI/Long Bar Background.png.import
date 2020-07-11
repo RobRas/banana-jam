@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bullet Light Horizontal-Sheet.png-4533ee47b5f964b565e53b6ed22e0f31.stex"
+path="res://.import/Long Bar Background.png-8023c23753639ba0255df2af659ab80e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/UI/Bullet Light Horizontal-Sheet.png"
-dest_files=[ "res://.import/Bullet Light Horizontal-Sheet.png-4533ee47b5f964b565e53b6ed22e0f31.stex" ]
+source_file="res://Art Assets/UI/Long Bar Background.png"
+dest_files=[ "res://.import/Long Bar Background.png-8023c23753639ba0255df2af659ab80e.stex" ]
 
 [params]
 

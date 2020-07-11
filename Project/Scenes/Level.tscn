@@ -38,5 +38,11 @@ stream = ExtResource( 6 )
 stream = ExtResource( 5 )
 
 [node name="Alert & Heat UI" parent="." instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 852.229
+margin_top = -14.5753
+margin_right = 852.229
+margin_bottom = -14.5753
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="BaddieSpawnTimer" to="." method="_on_BaddieSpawnTimer_timeout"]

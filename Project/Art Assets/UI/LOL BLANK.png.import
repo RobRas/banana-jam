@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bullet Light Horizontal-Sheet.png-4533ee47b5f964b565e53b6ed22e0f31.stex"
+path="res://.import/LOL BLANK.png-fdaf53fddfb8b4e91e63948228024cd4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/UI/Bullet Light Horizontal-Sheet.png"
-dest_files=[ "res://.import/Bullet Light Horizontal-Sheet.png-4533ee47b5f964b565e53b6ed22e0f31.stex" ]
+source_file="res://Art Assets/UI/LOL BLANK.png"
+dest_files=[ "res://.import/LOL BLANK.png-fdaf53fddfb8b4e91e63948228024cd4.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
