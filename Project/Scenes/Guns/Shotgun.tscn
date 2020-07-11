@@ -32,8 +32,9 @@ broken = true
 [node name="SpeedTween" type="Tween" parent="Breaks/ShotgunKnockback" index="0"]
 
 [node name="ShotgunSound" type="AudioStreamPlayer" parent="." index="4"]
-volume_db = -6.0
+volume_db = -4.0
 script = ExtResource( 9 )
+
 [connection signal="shot_input" from="MouseClick" to="ShotgunSound" method="_on_MouseClick_shot_input"]
 [connection signal="shot_input" from="MouseClick" to="Breaks/ShotgunKnockback" method="_on_MouseClick_shot_input"]
 [connection signal="shot_input" from="MouseClick" to="ShootSpread" method="_on_shot_input"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,17 +9,32 @@
 [ext_resource path="res://Art Assets/Bullets and Missiles/GooBall.png" type="Texture" id=7]
 [ext_resource path="res://Art Assets/Tilemap/DesertBackground.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Baddies/Flanker.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/ShotgunSmoke.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/GooExplosion.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Node2D" groups=[
 "World",
 ]]
 script = ExtResource( 1 )
+Baddie = ExtResource( 10 )
+GooExplosion = ExtResource( 12 )
+ShotgunSmoke = ExtResource( 11 )
 Homer = ExtResource( 3 )
 Flanker = ExtResource( 9 )
 
 [node name="Player" parent="." groups=[
 "player",
 ] instance=ExtResource( 2 )]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 
 [node name="HomerSpawnTimer" type="Timer" parent="."]
 autostart = true
@@ -63,9 +78,6 @@ wait_time = 5.0
 autostart = true
 
 [node name="Flanker" parent="." instance=ExtResource( 9 )]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
 [connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]
