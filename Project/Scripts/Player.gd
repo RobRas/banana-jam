@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
+signal hit
 
 export(int) var speed = 200
-
 var velocity = Vector2()
 
 func _ready():
@@ -23,3 +23,7 @@ func get_input():
 func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
+
+
+func _on_Area2D_body_entered(body):
+	emit_signal("hit")

@@ -20,3 +20,6 @@ func _physics_process(_delta):
 
 func _on_KillTimer_timeout():
 	queue_free()
+
+func _on_Area2D_area_entered(area):
+	queue_free()
