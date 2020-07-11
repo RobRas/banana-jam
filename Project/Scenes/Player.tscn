@@ -105,15 +105,18 @@ friction = 1200.0
 [node name="BreakMovementSpeed" type="Node2D" parent="Abilities/Movement"]
 position = Vector2( -5.09619, -13.4355 )
 script = ExtResource( 13 )
+broken = true
 speed = 200.0
 max_speed_modifier = Vector2( 0.2, 1.2 )
 
 [node name="AddGlobalDirectionMovement" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 14 )
+broken = true
 speed = 80.0
 
 [node name="AddFacingDirectionMovement" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 15 )
+broken = true
 speed = 140.0
 
 [node name="BreakMovementFriction" type="Node2D" parent="Abilities/Movement"]
