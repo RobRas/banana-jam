@@ -15,7 +15,7 @@
 ]]
 script = ExtResource( 1 )
 Homer = ExtResource( 3 )
-Flanker = ExtResource( 8 )
+Flanker = ExtResource( 9 )
 
 [node name="Player" parent="." groups=[
 "player",
