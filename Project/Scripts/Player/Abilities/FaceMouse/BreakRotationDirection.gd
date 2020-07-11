@@ -17,7 +17,7 @@ func set_broken(broken):
 	_broken = broken
 	return true
 
-func modify_rotation_angle(delta, angle, total_angle):
+func modify_rotation_angle(delta, angle):
 	if not _broken:
 		return angle
 	
