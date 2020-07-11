@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/RepairSound.wav-1587ed9fdf1acf449a81e76f98f46b06.sample"
+
+[deps]
+
+source_file="res://Art Assets/Audio/RepairSound.wav"
+dest_files=[ "res://.import/RepairSound.wav-1587ed9fdf1acf449a81e76f98f46b06.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
