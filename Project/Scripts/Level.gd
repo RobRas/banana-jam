@@ -56,7 +56,7 @@ func _on_FlankerSpawnTimer_timeout():
 	flanker.position.y = y
 	
 func _shotgun_smoke():
-	var smoke =ShotgunSmoke.instance()
+	var smoke = ShotgunSmoke.instance()
 	add_child(smoke)
 	smoke.position=$Player.position
 	smoke.set_rotation($Player.get_rotation())

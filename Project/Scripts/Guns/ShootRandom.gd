@@ -33,5 +33,6 @@ func shoot(bullet_speed, input_value):
 
 
 func _on_shot_input(input_value):
+	print("Shot")
 	shoot(get_parent().bullet_speed, input_value)
 

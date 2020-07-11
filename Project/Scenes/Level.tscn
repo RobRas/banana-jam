@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,25 +6,35 @@
 [ext_resource path="res://Art Assets/Audio/MainThemeLoop.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Art Assets/Audio/CriticalOverHeatLoop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Art Assets/Audio/OverHeatLoop.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Scenes/GooExplosion.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Art Assets/Bullets and Missiles/GooBall.png" type="Texture" id=7]
 [ext_resource path="res://Art Assets/Tilemap/DesertBackground.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Baddies/Flanker.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/ShotgunSmoke.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/ShotgunSmoke.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/GooExplosion.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Node2D" groups=[
 "World",
 ]]
-scale = Vector2( 0.96583, 0.986538 )
 script = ExtResource( 1 )
-Baddie = ExtResource( 3 )
-GooExplosion = ExtResource( 7 )
-ShotgunSmoke = ExtResource( 10 )
+Baddie = ExtResource( 10 )
+GooExplosion = ExtResource( 12 )
+ShotgunSmoke = ExtResource( 11 )
 Homer = ExtResource( 3 )
 Flanker = ExtResource( 9 )
 
 [node name="Player" parent="." groups=[
 "player",
 ] instance=ExtResource( 2 )]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 
 [node name="HomerSpawnTimer" type="Timer" parent="."]
 autostart = true
@@ -33,8 +43,7 @@ autostart = true
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -8.0
-autoplay = true
+volume_db = -4.0
 
 [node name="OverHeat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -42,11 +51,24 @@ stream = ExtResource( 6 )
 [node name="Critical OverHeat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
-[node name="GooExplosion" parent="." instance=ExtResource( 7 )]
+[node name="Explosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 200
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.5
+randomness = 0.2
+texture = ExtResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 0.5
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 0.5
 
 [node name="Background" type="Sprite" parent="."]
 show_behind_parent = true
-position = Vector2( 512.11, 301.118 )
+position = Vector2( 512.11, 300.303 )
 texture = ExtResource( 8 )
 
 [node name="Homer" parent="." instance=ExtResource( 3 )]
@@ -56,8 +78,6 @@ wait_time = 5.0
 autostart = true
 
 [node name="Flanker" parent="." instance=ExtResource( 9 )]
-
-[node name="ShotgunSmoke" parent="." instance=ExtResource( 10 )]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
 [connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]

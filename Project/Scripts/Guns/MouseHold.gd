@@ -12,3 +12,9 @@ func _process(delta):
 	if Input.is_action_pressed("shoot") and _current_cooldown <= 0:
 		_current_cooldown = cooldown
 		emit_signal("shot_input", 1)
+
+func enable():
+	set_process(true)
+
+func disable():
+	set_process(false)
