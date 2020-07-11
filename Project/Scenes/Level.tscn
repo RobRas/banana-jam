@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Baddie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Art Assets/Audio/MainThemeLoop.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Art Assets/Audio/CriticalOverHeatLoop.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Art Assets/Audio/OverHeatLoop.ogg" type="AudioStream" id=6]
 
 [node name="Level" type="Node2D" groups=[
 "World",
@@ -21,5 +24,16 @@ position = Vector2( 181, -95 )
 autostart = true
 
 [node name="Bullets" type="Node2D" parent="."]
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -4.0
+autoplay = true
+
+[node name="OverHeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Critical OverHeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="BaddieSpawnTimer" to="." method="_on_BaddieSpawnTimer_timeout"]
