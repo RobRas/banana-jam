@@ -23,7 +23,7 @@ func break_random():
 	if breakable_children.size() == 0:
 		return false
 	
-	var child_index = randi() % breakable_children.len
+	var child_index = randi() % breakable_children.size()
 	return breakable_children.set_broken(true)
 
 func is_fully_broken():
