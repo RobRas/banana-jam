@@ -1,5 +1,6 @@
 extends Node2D
 
+export(String) var break_name = "Rotation Slowdown"
 export(bool) var broken = false
 export(float) var speed = 20
 export(Vector2) var max_speed_modifier = Vector2(0.7, 1.1)
@@ -13,6 +14,7 @@ var _player
 
 func init(player):
 	_initial_max_speed = get_parent().max_speed
+	_noise.octaves = 3
 	set_broken(broken)
 
 func _process(delta):
@@ -29,13 +31,12 @@ func modify_velocity(velocity, forward):
 	return velocity
 
 func set_broken(broken):
-	if _broken == broken:
-		return false
-	
-	_noise.seed = randi()
-	_noise.octaves = 3
 	_broken = broken
-	return true
+	_noise.seed = randi()
+	if _broken:
+		print("Break: " + break_name + "!")
+	else:
+		print("Repaired: " + break_name + "!")
 
 func is_broken():
 	return _broken

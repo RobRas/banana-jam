@@ -13,8 +13,8 @@ func _process(delta):
 		_current_cooldown = cooldown
 		emit_signal("shot_input", 1)
 
-func enable():
+func equip():
 	set_process(true)
 
-func disable():
+func unequip():
 	set_process(false)

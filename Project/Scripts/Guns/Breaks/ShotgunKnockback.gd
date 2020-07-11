@@ -1,12 +1,13 @@
 extends Node2D
 
+export(String) var break_name = "Rotation Slowdown"
 export(bool) var broken
-
 export(Vector2) var knockback_initial_speed = Vector2(1000, 1300)
 export(Vector2) var knockback_duration = Vector2(0.7, 0.9)
 
 var _player
 var _broken = false
+var _equipped = false
 
 var _direction = Vector2()
 var _added_speed = 0
@@ -20,11 +21,11 @@ func init(player):
 	set_broken(broken)
 
 func set_broken(broken):
-	if _broken == broken:
-		return false
-	
 	_broken = broken
-	return true
+	if _broken:
+		print("Break: " + break_name + "!")
+	else:
+		print("Repaired: " + break_name + "!")
 
 func _process(delta):
 	if not _broken: 
@@ -47,12 +48,15 @@ func _knockback():
 	$SpeedTween.interpolate_property(self, "_added_speed", speed, 0, duration, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	$SpeedTween.start()
 
-func enable():
-	set_process(true)
+func equip():
+	_equipped = true
 
-func disable():
-	set_process(false)
+func unequip():
+	_equipped = false
 
+func is_broken():
+	return _broken
 
 func _on_MouseClick_shot_input(input_value):
-	_knockback()
+	if _equipped and _broken:
+		_knockback()

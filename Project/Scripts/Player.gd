@@ -29,3 +29,7 @@ func _physics_process(_delta):
 
 func _on_Area2D_body_entered(body):
 	emit_signal("hit")
+
+
+func _on_Break_body_entered(body):
+	$Abilities.break_random()

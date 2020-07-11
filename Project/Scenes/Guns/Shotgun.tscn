@@ -26,7 +26,7 @@ script = ExtResource( 8 )
 [node name="ShotgunKnockback" type="Node2D" parent="Breaks" index="0"]
 position = Vector2( -3, 0 )
 script = ExtResource( 7 )
-broken = true
+break_name = "Shotgun Kickback"
 
 [node name="SpeedTween" type="Tween" parent="Breaks/ShotgunKnockback" index="0"]
 
