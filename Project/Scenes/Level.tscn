@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Baddie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Baddies/Homer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art Assets/Audio/MainThemeLoop.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Art Assets/Audio/CriticalOverHeatLoop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Art Assets/Audio/OverHeatLoop.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/GooExplosion.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Art Assets/Tilemap/DesertBackground.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/ShotgunSmoke.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Baddies/Flanker.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/ShotgunSmoke.tscn" type="PackedScene" id=10]
 
 [node name="Level" type="Node2D" groups=[
 "World",
@@ -17,16 +18,15 @@ scale = Vector2( 0.96583, 0.986538 )
 script = ExtResource( 1 )
 Baddie = ExtResource( 3 )
 GooExplosion = ExtResource( 7 )
-ShotgunSmoke = ExtResource( 9 )
+ShotgunSmoke = ExtResource( 10 )
+Homer = ExtResource( 3 )
+Flanker = ExtResource( 9 )
 
 [node name="Player" parent="." groups=[
 "player",
 ] instance=ExtResource( 2 )]
 
-[node name="Baddie" parent="." instance=ExtResource( 3 )]
-position = Vector2( 181, -95 )
-
-[node name="BaddieSpawnTimer" type="Timer" parent="."]
+[node name="HomerSpawnTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="Bullets" type="Node2D" parent="."]
@@ -49,11 +49,15 @@ show_behind_parent = true
 position = Vector2( 512.11, 301.118 )
 texture = ExtResource( 8 )
 
-[node name="ShotgunSmoke" parent="." instance=ExtResource( 9 )]
-position = Vector2( 23.3156, -0.181055 )
-scale = Vector2( 1, 1 )
-amount = 50
-emission_shape = 0
-spread = 4.0
+[node name="Homer" parent="." instance=ExtResource( 3 )]
+
+[node name="FlankerSpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Flanker" parent="." instance=ExtResource( 9 )]
+
+[node name="ShotgunSmoke" parent="." instance=ExtResource( 10 )]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
-[connection signal="timeout" from="BaddieSpawnTimer" to="." method="_on_BaddieSpawnTimer_timeout"]
+[connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
+[connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]

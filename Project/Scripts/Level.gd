@@ -3,6 +3,8 @@ extends Node2D
 export (PackedScene) var Baddie
 export (PackedScene) var GooExplosion
 export (PackedScene) var ShotgunSmoke
+export (PackedScene) var Homer
+export (PackedScene) var Flanker
 var hit_count;
 var rand = RandomNumberGenerator.new()
 
@@ -15,6 +17,7 @@ func _on_player_shot(bullet):
 #	hit_count += 1
 
 func _on_enemy_hit(pos):
+	print("herre")
 	var explode = GooExplosion.instance()
 	add_child(explode)
 	explode.position=pos
@@ -22,10 +25,10 @@ func _on_enemy_hit(pos):
 	explode.emitting=true
 	
 
-func _on_BaddieSpawnTimer_timeout():
-	var baddie = Baddie.instance()
-	add_child(baddie)
-	baddie.connect("enemy_hit",self,"_on_enemy_hit")
+func _on_HomerSpawnTimer_timeout():
+	var homer = Homer.instance()
+	add_child(homer)
+	homer.connect("enemy_hit",self,"_on_enemy_hit")
 	
 	# Not sure if this spawns enemies on screen, or just within a
 	# screen of the player
@@ -34,11 +37,24 @@ func _on_BaddieSpawnTimer_timeout():
 	var x = rand.randf_range(0,screen_size.x)
 	rand.randomize()
 	var y = rand.randf_range(0,screen_size.y)
-	baddie.position.x = x
-	baddie.position.y = y
+	homer.position.x = x
+	homer.position.y = y
+
+
+func _on_FlankerSpawnTimer_timeout():
+	var flanker = Flanker.instance()
+	add_child(flanker)
+	flanker.connect("enemy_hit",self,"_on_enemy_hit")
 	
-	# Pass player to Baddie to they can home in
-	baddie.player = $Player
+		# Not sure if this spawns enemies on screen, or just within a
+	# screen of the player
+	var screen_size = get_viewport().get_visible_rect().size
+	rand.randomize()
+	var x = rand.randf_range(0,screen_size.x)
+	rand.randomize()
+	var y = rand.randf_range(0,screen_size.y)
+	flanker.position.x = x
+	flanker.position.y = y
 	
 func _shotgun_smoke():
 	var smoke =ShotgunSmoke.instance()
@@ -48,3 +64,4 @@ func _shotgun_smoke():
 	smoke.emitting=true
 	smoke.one_shot=true
 	
+
