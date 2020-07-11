@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Blue Laser Blast-Sheet.png-8362457e36a5c838bf1f85f6ecf4f6a4.stex"
+path="res://.import/LONGER BAR.png-8f624efeb62ab6a0cf344770d75f5156.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Bullets and Missiles/Blue Laser Blast-Sheet.png"
-dest_files=[ "res://.import/Blue Laser Blast-Sheet.png-8362457e36a5c838bf1f85f6ecf4f6a4.stex" ]
+source_file="res://Art Assets/UI/LONGER BAR.png"
+dest_files=[ "res://.import/LONGER BAR.png-8f624efeb62ab6a0cf344770d75f5156.stex" ]
 
 [params]
 
