@@ -19,9 +19,13 @@ func get_input():
 	if velocity.length()>0:
 		$RocketBooster.stream_paused=false
 		$Sprite.play("Boosting")
+		$Booster1.emitting=true
+		$Booster2.emitting=true
 	else:
 		$RocketBooster.stream_paused=true
 		$Sprite.play("Idle")
+		$Booster1.emitting=false
+		$Booster2.emitting=false
 
 func _physics_process(_delta):
 	get_input()
