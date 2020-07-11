@@ -26,3 +26,4 @@ func disable():
 
 func _on_shot(bullet):
 	emit_signal("shot", bullet)
+	$GunSound.play()

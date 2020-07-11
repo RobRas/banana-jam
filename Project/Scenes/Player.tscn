@@ -44,14 +44,14 @@ region = Rect2( 128, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
-"loop": true,
-"name": "Boosting",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "Boosting",
 "speed": 5.0
 } ]
 
@@ -168,7 +168,6 @@ shape = SubResource( 8 )
 
 [node name="RocketBooster" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
-volume_db = 6.0
 autoplay = true
 
 [node name="Booster1" type="CPUParticles2D" parent="."]

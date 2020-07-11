@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Gatling Gun Sound_Short-001.wav-fef5588d4ada406e3443cc4384dc2e61.sample"
+
+[deps]
+
+source_file="res://Art Assets/Audio/Gatling Gun Sound_Short-001.wav"
+dest_files=[ "res://.import/Gatling Gun Sound_Short-001.wav-fef5588d4ada406e3443cc4384dc2e61.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

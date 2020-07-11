@@ -5,9 +5,9 @@
 [ext_resource path="res://Scenes/Guns/ShotType/ShootSpread.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/Targetting/ForwardTargetting.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Bullets/BulletLight.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Art Assets/Audio/Shotgun.wav" type="AudioStream" id=6]
 [ext_resource path="res://Scripts/Guns/Breaks/ShotgunKnockback.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Guns/Breaks/GunBreaks.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/Guns/Audio/ShotgunSound.gd" type="Script" id=9]
 
 [node name="Shotgun" instance=ExtResource( 1 )]
 bullet_scene = ExtResource( 5 )
@@ -30,10 +30,9 @@ broken = true
 
 [node name="SpeedTween" type="Tween" parent="Breaks/ShotgunKnockback" index="0"]
 
-[node name="ShotgunSound" type="AudioStreamPlayer" parent="." index="4"]
-volume_db = -4.0
-script = ExtResource( 9 )
+[node name="GunSound" parent="." index="4"]
+stream = ExtResource( 6 )
+volume_db = -1.0
 [connection signal="shot" from="ShootSpread" to="." method="_on_shot"]
-[connection signal="shot_input" from="MouseClick" to="ShotgunSound" method="_on_MouseClick_shot_input"]
 [connection signal="shot_input" from="MouseClick" to="ShootSpread" method="_on_shot_input"]
 [connection signal="shot_input" from="MouseClick" to="Breaks/ShotgunKnockback" method="_on_MouseClick_shot_input"]
