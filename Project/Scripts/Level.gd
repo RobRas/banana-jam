@@ -1,6 +1,8 @@
 extends Node2D
 
 export (PackedScene) var Baddie
+export (PackedScene) var GooExplosion
+export (PackedScene) var ShotgunSmoke
 var hit_count;
 var rand = RandomNumberGenerator.new()
 
@@ -8,15 +10,16 @@ func _on_player_shot(bullet):
 	var current_position = bullet.position
 	$Bullets.add_child(bullet)
 	bullet.position = current_position
-
-
+	
 #func _on_Player_hit():
 #	hit_count += 1
 
 func _on_enemy_hit(pos):
-	$Explosion.position=pos
-	#$Explosion.one_shot=true
-	$Explosion.emitting=true
+	var explode = GooExplosion.instance()
+	add_child(explode)
+	explode.position=pos
+	explode.one_shot=true
+	explode.emitting=true
 	
 
 func _on_BaddieSpawnTimer_timeout():
@@ -36,3 +39,12 @@ func _on_BaddieSpawnTimer_timeout():
 	
 	# Pass player to Baddie to they can home in
 	baddie.player = $Player
+	
+func _shotgun_smoke():
+	var smoke =ShotgunSmoke.instance()
+	add_child(smoke)
+	smoke.position=$Player.position
+	smoke.set_rotation($Player.get_rotation())
+	smoke.emitting=true
+	smoke.one_shot=true
+	
