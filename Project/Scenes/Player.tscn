@@ -33,14 +33,14 @@ animations = [ {
 "name": "Boosting",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -54,7 +54,9 @@ extents = Vector2( 32.6958, 30.5292 )
 offsets = PoolRealArray( 0, 0.0794702, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.988281, 0.148628, 0.0617676, 1, 0.964844, 0.689595, 0.0376892, 1 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"players",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]

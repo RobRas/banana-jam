@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-export(int) var min_speed = 150
-export(int) var max_speed = 250
+export(int) var min_speed = 40
+export(int) var max_speed = 90
 
 var _run_speed = rand_range(min_speed, max_speed)
 var _velocity = Vector2.ZERO
