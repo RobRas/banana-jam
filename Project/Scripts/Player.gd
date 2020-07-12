@@ -80,6 +80,8 @@ func break_part():
 
 # Try to do the opposite of breakage
 func unbreak_part():
+	if _current_breaks == 0:
+		return
 	_current_breaks -= 1
 	var part_name = $Abilities.unbreak_part()
 	emit_signal("part_repaired", part_name)
