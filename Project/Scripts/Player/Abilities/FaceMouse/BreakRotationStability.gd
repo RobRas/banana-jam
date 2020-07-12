@@ -12,7 +12,6 @@ var _broken = false
 var _max_turn_rads
 
 func _ready():
-	set_broken(broken)
 	_max_turn_rads = deg2rad(max_turn)
 
 func set_broken(broken):

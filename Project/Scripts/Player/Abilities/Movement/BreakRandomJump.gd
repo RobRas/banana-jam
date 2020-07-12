@@ -11,8 +11,6 @@ var _broken = false
 var _direction = Vector2()
 var _added_speed = 0
 
-func _ready():
-	set_broken(broken)
 
 func modify_velocity(velocity, forward):
 	if not _broken:

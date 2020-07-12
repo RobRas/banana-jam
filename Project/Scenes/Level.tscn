@@ -77,13 +77,9 @@ show_behind_parent = true
 position = Vector2( 512.11, 300.303 )
 texture = ExtResource( 8 )
 
-[node name="Homer" parent="." instance=ExtResource( 3 )]
-
 [node name="FlankerSpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
-
-[node name="Flanker" parent="." instance=ExtResource( 9 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

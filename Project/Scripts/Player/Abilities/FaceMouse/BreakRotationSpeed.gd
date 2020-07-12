@@ -6,8 +6,6 @@ export(float) var speed_modifier = 0.5
 
 var _broken = false
 
-func _ready():
-	set_broken(broken)
 
 func set_broken(broken):
 	_broken = broken

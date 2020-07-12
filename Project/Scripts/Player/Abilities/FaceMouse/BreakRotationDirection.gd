@@ -8,8 +8,6 @@ var _broken = false
 var _direction = -1
 
 
-func _ready():
-	set_broken(broken)
 
 func set_broken(broken):
 	_broken = broken

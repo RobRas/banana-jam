@@ -7,9 +7,6 @@ export(float) var friction_modifier = 0.4 # feels better with less friction
 
 var _broken = false
 
-func init(player):
-	set_broken(broken)
-
 func modify_velocity(velocity, forward):
 	return velocity
 

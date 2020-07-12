@@ -15,7 +15,6 @@ var _player
 func init(player):
 	_initial_max_speed = get_parent().max_speed
 	_noise.octaves = 3
-	set_broken(broken)
 
 func _process(delta):
 	_time += delta
@@ -27,7 +26,7 @@ func modify_velocity(velocity, forward):
 	var val = _noise.get_noise_1d(_time * speed)
 	var new_max_speed = map(val, Vector2(-1, 1), max_speed_modifier) * _initial_max_speed
 	get_parent().max_speed = new_max_speed
-	print(new_max_speed)
+	
 	return velocity
 
 func set_broken(broken):

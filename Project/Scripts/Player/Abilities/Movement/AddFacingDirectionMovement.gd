@@ -12,7 +12,6 @@ var _last_add = Vector2()
 
 func init(player):
 	_player = player
-	set_broken(broken)
 
 func modify_velocity(velocity, forward):
 	if not _broken:
