@@ -59,12 +59,20 @@ func scrap_hit(scrap, value):
 	emit_signal("scrap_gained", value, scrap_value)
 	scrap.destroy()
 	
+	if scrap_value >= 5:
+		scrap_value = 0
+		unbreak_part()
+	
 
 func break_part():
 	print("Break_body_entered")
 	var part_name = $Abilities.break_random()
 	emit_signal("part_broken", part_name)
 
+# Try to do the opposite of breakage
+func unbreak_part():
+	print("Player: Unbreak_part()")
+	var part_name = $Abilities.unbreak_part()
 
 func _on_Area2D_area_entered(area):
 	if area.get_parent().get_script().get_path().get_file() == "RepairDrop":

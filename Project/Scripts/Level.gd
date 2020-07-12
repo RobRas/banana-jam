@@ -38,13 +38,10 @@ func _on_HomerSpawnTimer_timeout():
 	add_child(homer)
 	homer.connect("Baddie_dead",self,"_on_Baddie_dead")
 	
-	# Not sure if this spawns enemies on screen, or just within a
-	# screen of the player
-	var screen_size = get_viewport().get_visible_rect().size
 	rand.randomize()
-	var x = rand.randf_range(0,screen_size.x)
+	var x = rand.randf_range(-1500,1500)
 	rand.randomize()
-	var y = rand.randf_range(0,screen_size.y)
+	var y = rand.randf_range(-900,900)
 	homer.position.x = x
 	homer.position.y = y
 
@@ -53,13 +50,10 @@ func _on_FlankerSpawnTimer_timeout():
 	add_child(flanker)
 	flanker.connect("Baddie_dead",self,"_on_Baddie_dead")
 	
-	# Not sure if this spawns enemies on screen, or just within a
-	# screen of the player
-	var screen_size = get_viewport().get_visible_rect().size
 	rand.randomize()
-	var x = rand.randf_range(0,screen_size.x)
+	var x = rand.randf_range(-1500,1500)
 	rand.randomize()
-	var y = rand.randf_range(0,screen_size.y)
+	var y = rand.randf_range(-900,900)
 	flanker.position.x = x
 	flanker.position.y = y
 	

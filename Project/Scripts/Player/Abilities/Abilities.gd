@@ -1,5 +1,6 @@
 extends Node2D
 
+var broken_parts = []
 
 func break_random():
 	var breakable_types = []
@@ -12,4 +13,10 @@ func break_random():
 		return null
 	
 	var i = randi() % breakable_types.size()
-	return breakable_types[i].break_random()
+	var broken_part = breakable_types[i].break_random()
+	broken_parts.push_back(broken_part)
+	return broken_part.break_name
+
+func unbreak_part():
+	if broken_parts.empty() != true:
+		broken_parts.pop_back().set_broken(false)
