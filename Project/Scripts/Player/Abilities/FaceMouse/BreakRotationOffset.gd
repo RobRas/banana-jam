@@ -1,6 +1,7 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
+export(String) var break_name = "Twisted Cockpit"
+export(String) var break_description = "Offset facing"
 export(bool) var broken
 export(float) var offset_min = 25
 export(float) var offset_max = 45

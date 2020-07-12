@@ -1,6 +1,7 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
+export(String) var break_name = "Rusted Axles"
+export(String) var break_description = "Inconsistent turn rate"
 export(bool) var broken
 export(float) var speed_modifier = 0.5
 

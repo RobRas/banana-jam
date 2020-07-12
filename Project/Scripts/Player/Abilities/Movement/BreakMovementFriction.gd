@@ -1,6 +1,7 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
+export(String) var break_name = "Cut Brakes"
+export(String) var break_description = "Slower stopping"
 export(bool) var broken = false
 export(float) var modifier = 0.2
 

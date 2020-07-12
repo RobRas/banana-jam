@@ -1,6 +1,7 @@
 extends Node2D
 
 export(String) var break_name = "Blasted Barrel"
+export(String) var break_description = "Shotgun: Wider spread"
 export(bool) var broken
 export(float) var angle_increase = 60
 export(NodePath) var spread_path

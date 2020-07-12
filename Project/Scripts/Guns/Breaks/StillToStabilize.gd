@@ -1,6 +1,7 @@
 extends Node2D
 
 export(String) var break_name = "Foggy Scope"
+export(String) var break_description = "Sniper: Slow charge while moving"
 export(bool) var broken
 
 export(NodePath) var hold_path
@@ -20,7 +21,6 @@ func init(player):
 func _process(delta):
 	if not _broken:
 		return
-	print(_player.velocity.length_squared())
 	_hold_node.set_frozen(_player.velocity.length_squared() > 100)
 
 func set_broken(broken):

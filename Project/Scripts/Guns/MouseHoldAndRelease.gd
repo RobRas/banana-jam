@@ -15,10 +15,13 @@ export(float) var forgiveness = 0.15
 var _percent_held = 0
 var _holding = false
 var _frozen = false
+var self_enabled = true
 
 
 func _process(delta):
 	_current_cooldown -= delta
+	if not self_enabled:
+		return
 	if Input.is_action_just_pressed("shoot"):
 		if not _current_cooldown <= 0:
 			return
@@ -47,6 +50,7 @@ func set_frozen(new_frozen):
 	_frozen = new_frozen
 
 func equip(): 
+	self_enabled = true
 	_holding = false
 	set_process(true)
 

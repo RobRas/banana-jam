@@ -1,6 +1,7 @@
 extends Node2D
 
 export(String) var break_name = "Too Metal Jackets"
+export(String) var break_description = "Sniper: Bullets ricochet"
 export(bool) var broken
 
 var _broken = false

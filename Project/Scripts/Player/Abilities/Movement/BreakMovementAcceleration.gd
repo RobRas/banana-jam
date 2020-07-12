@@ -1,6 +1,7 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
+export(String) var break_name = "Shredded Treads"
+export(String) var break_description = "Slower acceleration"
 export(bool) var broken = false
 export(float) var accel_modifier = 0.2
 export(float) var friction_modifier = 0.4 # feels better with less friction

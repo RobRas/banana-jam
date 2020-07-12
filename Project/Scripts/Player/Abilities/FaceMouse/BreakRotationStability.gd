@@ -1,6 +1,7 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
+export(String) var break_name = "Wobbly Wheels"
+export(String) var break_description = "Direction wobbles"
 export(bool) var broken
 export(float) var max_turn = 1.6
 

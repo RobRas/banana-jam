@@ -1,6 +1,7 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
+export(String) var break_name = "Haywire Thrusters"
+export(String) var break_description = "Constant movement"
 export(bool) var broken = false
 export(float) var speed = 100
 

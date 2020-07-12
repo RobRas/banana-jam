@@ -1,6 +1,7 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
+export(String) var break_name = "Failing Engine"
+export(String) var break_description = "Changing speed"
 export(bool) var broken = false
 export(float) var speed = 20
 export(Vector2) var max_speed_modifier = Vector2(0.7, 1.1)

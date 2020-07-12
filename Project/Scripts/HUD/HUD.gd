@@ -8,9 +8,9 @@ func _ready():
 	$StatsContainer/Stats/Heat_Module/CenterContainer/HeatBar.max_value = player.max_heat
 	$StatsContainer/Stats/ScrapModule/CenterContainer/ScrapBar.max_value = player.max_scrap
 
-func _on_Player_part_broken(part_name):
+func _on_Player_part_broken(break_node):
 	var label_scene = break_label.instance()
-	label_scene.text = part_name
+	label_scene.init(break_node.break_name, break_node.break_description)
 	$BreaksContainer/Breaks.add_child(label_scene)
 
 

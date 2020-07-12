@@ -7,14 +7,14 @@
 [ext_resource path="res://Scenes/Bullets/BulletAP.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Guns/SniperAimVisuals.gd" type="Script" id=6]
 [ext_resource path="res://Art Assets/Gun Stuff/SniperAim.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/Guns/Breaks/ShotgunKnockback.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Guns/Breaks/SniperKnockback.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Guns/Breaks/GunBreaks.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Guns/Breaks/StillToStabilize.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Guns/Breaks/BouncyBullets.gd" type="Script" id=11]
 
 [node name="Sniper" instance=ExtResource( 1 )]
 bullet_scene = ExtResource( 5 )
-bullet_speed = 600.0
+bullet_speed = 1600.0
 
 [node name="MouseHoldAndRelease" parent="." index="0" instance=ExtResource( 2 )]
 cooldown = 0.6
@@ -43,9 +43,9 @@ script = ExtResource( 9 )
 
 [node name="Knockback" type="Node2D" parent="Breaks" index="0"]
 script = ExtResource( 8 )
-break_name = "Explosive Blowback"
-knockback_initial_speed = Vector2( 4000, 5000 )
-knockback_duration = Vector2( 1.5, 1.8 )
+knockback_initial_speed = Vector2( 1000, 3000 )
+knockback_duration = Vector2( 0.5, 1.8 )
+shoot_path = NodePath("../../MouseHoldAndRelease")
 
 [node name="SpeedTween" type="Tween" parent="Breaks/Knockback" index="0"]
 
@@ -56,9 +56,8 @@ hold_path = NodePath("../../MouseHoldAndRelease")
 [node name="BouncyBullets" type="Node2D" parent="Breaks" index="2"]
 script = ExtResource( 11 )
 [connection signal="hold_started" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_hold_started"]
-[connection signal="hold_started" from="MouseHoldAndRelease" to="Breaks/StillToStabilize" method="_on_MouseHoldAndRelease_hold_started"]
-[connection signal="shot_input" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_shot_input"]
 [connection signal="shot_input" from="MouseHoldAndRelease" to="ShootRandom" method="_on_shot_input"]
+[connection signal="shot_input" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_shot_input"]
 [connection signal="shot_input" from="MouseHoldAndRelease" to="Breaks/Knockback" method="_on_MouseClick_shot_input"]
 [connection signal="shot" from="ShootRandom" to="." method="_on_shot"]
 [connection signal="shot" from="ShootRandom" to="Breaks/BouncyBullets" method="_on_Shoot_shot"]

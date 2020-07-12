@@ -15,10 +15,10 @@ func break_random():
 	var i = randi() % breakable_types.size()
 	var broken_part = breakable_types[i].break_random()
 	broken_parts.push_back(broken_part)
-	return broken_part.break_name
+	return broken_part
 
 func unbreak_part():
 	if broken_parts.empty() != true:
-		var part = broken_parts.pop_front()
-		part.set_broken(false)
-		return part.break_name
+		var break_node = broken_parts.pop_front()
+		break_node.set_broken(false)
+		return break_node

@@ -1,6 +1,7 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
+export(String) var break_name = "Leaking Oil"
+export(String) var break_description = "Random bursts of movement"
 export(bool) var broken = false
 export(Vector2) var jump_initial_speed = Vector2(1200, 1500)
 export(float) var jump_duration = 0.5

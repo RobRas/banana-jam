@@ -92,7 +92,6 @@ speed_modifier = 0.4
 
 [node name="BreakRotationDirection" type="Node2D" parent="Abilities/Aim"]
 script = ExtResource( 10 )
-break_name = "Broken Leg"
 modifier = 0.2
 
 [node name="BreakRotationOffset" type="Node2D" parent="Abilities/Aim"]
@@ -104,7 +103,6 @@ offset_max = 50.0
 [node name="BreakRotationStability" type="Node2D" parent="Abilities/Aim"]
 scale = Vector2( 1.00763, 1.0266 )
 script = ExtResource( 12 )
-break_name = "Wobbly Wheels"
 
 [node name="Movement" type="Node2D" parent="Abilities"]
 position = Vector2( 37.6934, -7.03235 )
@@ -116,24 +114,20 @@ friction = 900.0
 [node name="BreakMovementSpeed" type="Node2D" parent="Abilities/Movement"]
 position = Vector2( -5.09619, -13.4355 )
 script = ExtResource( 13 )
-break_name = "Failing Engine"
 speed = 200.0
 max_speed_modifier = Vector2( 0.2, 1.2 )
 
 [node name="AddFacingDirectionMovement" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 15 )
-break_name = "Haywire Thrusters"
 speed = 140.0
 
 [node name="BreakMovementFriction" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 16 )
-break_name = "No Brakes"
-modifier = 0.1
+modifier = 0.02
 
 [node name="BreakMovementAcceleration" type="Node2D" parent="Abilities/Movement"]
 position = Vector2( -22.855, -7.30548 )
 script = ExtResource( 17 )
-break_name = "Shredded Treads"
 accel_modifier = 0.4
 friction_modifier = 0.7
 
@@ -141,7 +135,6 @@ friction_modifier = 0.7
 position = Vector2( -38.6777, -24.8034 )
 scale = Vector2( 1.10395, 1.19719 )
 script = ExtResource( 18 )
-break_name = "Random Thrust"
 jump_initial_speed = Vector2( 800, 1000 )
 jump_cooldown = Vector2( 4, 6 )
 

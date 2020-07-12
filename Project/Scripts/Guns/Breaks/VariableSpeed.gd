@@ -1,6 +1,7 @@
 extends Node2D
 
 export(String) var break_name = "Clogged Pipes"
+export(String) var break_description = "Gatling: Random fire rate"
 export(bool) var broken
 export(Vector2) var cooldown_mod = Vector2(-0.5, 0.1)
 export(float) var frequency = 200

@@ -1,6 +1,7 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
+export(String) var break_name = "Broken Leg"
+export(String) var break_description = "One turn direction slowed"
 export(bool) var broken
 export(float) var modifier = 0.1
 

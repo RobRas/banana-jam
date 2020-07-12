@@ -1,6 +1,7 @@
 extends Node2D
 
 export(String) var break_name = "Weak Arms"
+export(String) var break_description = "Gatling: Lower accuracy over time"
 export(bool) var broken
 export(float) var max_angle = 140
 export(float) var time_to_max = 8.0

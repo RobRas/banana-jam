@@ -1,10 +1,12 @@
 extends Node2D
 
-export(String) var break_name = "Rotation Slowdown"
-export(String) var break_description = "Shotgun: Knockback on fire"
+export(String) var break_name = "Exploding Backblast"
+export(String) var break_description = "Sniper: Knockback from charge"
 export(bool) var broken
-export(Vector2) var knockback_initial_speed = Vector2(1000, 1300)
-export(Vector2) var knockback_duration = Vector2(0.7, 0.9)
+export(Vector2) var knockback_initial_speed = Vector2(300, 50000)
+export(Vector2) var knockback_duration = Vector2(0.3, 2.5)
+export(NodePath) var shoot_path
+var _shoot
 
 var _player
 var _broken = false
@@ -14,11 +16,11 @@ var _direction = Vector2()
 var _added_speed = 0
 var _previous_speed = 0
 
-var _jumping = false
-
 
 func init(player):
 	_player = player
+	_shoot = get_node(shoot_path)
+	set_broken(true)
 
 func set_broken(broken):
 	_broken = broken
@@ -30,16 +32,21 @@ func _process(delta):
 	_player.additional_velocity -= _direction * _previous_speed
 	_player.additional_velocity += _direction * _added_speed
 	_previous_speed = _added_speed
-	_jumping = _added_speed != 0
+	
+	if _added_speed == 0:
+		_shoot.self_enabled = true
 
-func _knockback():
-	if _jumping:
-		_player.additional_velocity -= _direction * _previous_speed
-	_jumping = true
+func _knockback(value):
+	_shoot.self_enabled = false
 	_direction = -_player.forward.get_forward()
-	var strength = rand_range(0, 1)
+	_added_speed = 0
+	_previous_speed = 0
+	
+	var strength = value
 	var duration = lerp(knockback_duration.x, knockback_duration.y, strength)
 	var speed = lerp(knockback_initial_speed.x, knockback_initial_speed.y, strength)
+	
+	_added_speed = speed
 	$SpeedTween.remove_all()
 	$SpeedTween.interpolate_property(self, "_added_speed", speed, 0, duration, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	$SpeedTween.start()
@@ -55,4 +62,4 @@ func is_broken():
 
 func _on_MouseClick_shot_input(input_value):
 	if _equipped and _broken:
-		_knockback()
+		_knockback(input_value)

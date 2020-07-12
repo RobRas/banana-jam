@@ -8,9 +8,9 @@ var _current_breaks = 0
 
 signal damaged(damage)
 signal overheated()
-signal part_broken(part_name)
+signal part_broken(break_node)
 signal scrap_gained(amount, total)
-signal part_repaired(part_name)
+signal part_repaired(break_node)
 signal blown_up
 
 var velocity = Vector2()
@@ -44,10 +44,11 @@ func _physics_process(_delta):
 	move_and_slide(velocity + additional_velocity)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if velocity.dot(collision.normal) > 0:
-			var ang = Vector2(1, 0).angle_to(collision.normal)
-			var to_remove = velocity.rotated(ang)
-			velocity -= Vector2(to_remove.x, 0)
+		if collision.collider.collision_layer == 32: # Is environment
+			if velocity.dot(collision.normal) > 0:
+				var ang = Vector2(1, 0).angle_to(collision.normal)
+				var to_remove = velocity.rotated(ang)
+				velocity -= Vector2(to_remove.x, 0)
 
 func bullet_hit(damage):
 	if _invulnerable:
@@ -80,8 +81,8 @@ func break_part():
 		queue_free()
 		return
 
-	var part_name = $Abilities.break_random()
-	emit_signal("part_broken", part_name)
+	var break_node = $Abilities.break_random()
+	emit_signal("part_broken", break_node)
 	$BrokenEqSound.play()
 
 # Try to do the opposite of breakage
@@ -89,8 +90,8 @@ func unbreak_part():
 	if _current_breaks <= 0:
 		return
 	_current_breaks -= 1
-	var part_name = $Abilities.unbreak_part()
-	emit_signal("part_repaired", part_name)
+	var break_node = $Abilities.unbreak_part()
+	emit_signal("part_repaired", break_node)
 	$RepairSound.play()
 
 func _on_Area2D_area_entered(area):

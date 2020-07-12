@@ -1,6 +1,7 @@
 extends Node2D
 
 export(String) var break_name = "Power Hog"
+export(String) var break_description = "Getling: Slow on fire"
 export(bool) var broken
 export(float) var end_speed_reduction = 0.1
 export(float) var time_to_full_reduction = 6.0
