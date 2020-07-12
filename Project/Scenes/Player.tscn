@@ -72,6 +72,7 @@ colors = PoolColorArray( 0, 0, 0, 1, 0.988281, 0.148628, 0.0617676, 1, 0.964844,
 ]]
 collision_mask = 36
 script = ExtResource( 2 )
+breaks_to_die = 8
 
 [node name="Forward" type="Position2D" parent="."]
 position = Vector2( 50, 0 )

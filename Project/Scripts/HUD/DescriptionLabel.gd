@@ -24,6 +24,7 @@ var initial_pos
 var _flashing = true
 
 func _ready():
+	_noise.period = 0.1
 	initial_pos = rect_position
 	rect_scale = Vector2(scale_start, scale_start)
 	$Movement.interpolate_property(self, "_movement_value", 0, 1, movement_duration, Tween.TRANS_CUBIC, Tween.EASE_OUT)
@@ -44,8 +45,8 @@ func _process(delta):
 	margin_left = lerp(-500.0, 0.0, _movement_value)
 	rect_scale = Vector2(new_scale, new_scale)
 		
-	var shake_move_x = _noise.get_noise_1d(_time * shake_frequency) * shake_magnitude
-	var shake_move_y = _noise.get_noise_1d((_time + 1000) * shake_frequency) * shake_magnitude
+	var shake_move_x = _noise.get_noise_1d(_time) * shake_magnitude
+	var shake_move_y = _noise.get_noise_1d((_time + 1000)) * shake_magnitude
 		
 	shake_move_x = lerp(shake_move_x, sign(shake_move_x), _shake_value)
 	shake_move_y = lerp(shake_move_y, sign(shake_move_x), _shake_value)
@@ -53,9 +54,9 @@ func _process(delta):
 	margin_left += shake_move_x
 	margin_bottom += shake_move_y
 	
-	var shake_rot = _noise.get_noise_1d((_time + 2000) * shake_rot_frequency) * shake_rot_magnitude
+	var shake_rot = _noise.get_noise_1d((_time + 2000)) * shake_rot_magnitude
 	rect_rotation = lerp(shake_rot, 2.0 * sign(shake_rot), _shake_value)
 	
-	var flash = abs(_noise.get_noise_1d((_time + 3000) * flash_frequency))
+	var flash = abs(_noise.get_noise_1d((_time + 3000)))
 	var color = lerp(Color(1.0, 0.0, 0.0, 1.0), Color(1.0, 1.0, 1.0, 1.0), flash)
 	modulate = color

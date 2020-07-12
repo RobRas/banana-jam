@@ -31,3 +31,11 @@ func _on_Player_part_repaired(part_name):
 	var node_to_delete = $BreaksContainer/Breaks.get_child(0)
 	$BreaksContainer/Breaks.remove_child(node_to_delete)
 	node_to_delete.queue_free()
+
+
+func _on_Player_critical_status():
+	$StatsContainer/Stats/Heat_Module/CenterContainer.HeatBar.set_danger(true)
+
+
+func _on_Player_critical_repaired():
+	$StatsContainer/Stats/Heat_Module/CenterContainer.HeatBar.set_danger(false)
