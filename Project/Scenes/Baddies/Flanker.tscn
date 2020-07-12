@@ -7,15 +7,15 @@
 [ext_resource path="res://icon.png" type="Texture" id=5]
 
 [node name="Flanker" instance=ExtResource( 1 )]
+damage_node_path = NodePath("Die1Hit")
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 5 )
 
-[node name="Die1Hit" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Die1Hit" parent="." index="3" instance=ExtResource( 2 )]
 
-[node name="CircleApproach" type="Node" parent="." index="5"]
+[node name="CircleApproach" type="Node" parent="." index="4"]
 script = ExtResource( 3 )
 
-[node name="EnemySingleShot" parent="." index="6" instance=ExtResource( 4 )]
-[connection signal="area_entered" from="Area2D" to="Die1Hit" method="_on_Area2D_area_entered"]
+[node name="EnemySingleShot" parent="." index="5" instance=ExtResource( 4 )]
 [connection signal="Baddie_dead" from="Die1Hit" to="." method="_on_Baddie_dead"]

@@ -1,13 +1,15 @@
 extends Node2D
 
 signal repair_pickup
-var _value_repaired
+var value_repaired = 2
 
 func init(value_repaired, drop_position):
-	_value_repaired = value_repaired
-	self.global_position = drop_position
-	
+	value_repaired = value_repaired
+	global_position = drop_position
 
-func _on_Area2D_area_entered(area):
-	emit_signal("repair_pickup", _value_repaired)
+func destroy():
 	queue_free()
+
+func _on_Area2D_body_entered(body):
+	if body.has_method("scrap_hit"):
+		body.scrap_hit(self, value_repaired)

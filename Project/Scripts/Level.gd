@@ -36,7 +36,6 @@ func _on_enemy_hit(pos):
 func _on_HomerSpawnTimer_timeout():
 	var homer = Homer.instance()
 	add_child(homer)
-	homer.connect("enemy_hit",self,"_on_enemy_hit")
 	homer.connect("Baddie_dead",self,"_on_Baddie_dead")
 	
 	# Not sure if this spawns enemies on screen, or just within a
@@ -52,7 +51,6 @@ func _on_HomerSpawnTimer_timeout():
 func _on_FlankerSpawnTimer_timeout():
 	var flanker = Flanker.instance()
 	add_child(flanker)
-	flanker.connect("enemy_hit",self,"_on_enemy_hit")
 	flanker.connect("Baddie_dead",self,"_on_Baddie_dead")
 	
 	# Not sure if this spawns enemies on screen, or just within a
@@ -88,7 +86,3 @@ func _on_Baddie_dead(drop_value, drop_position):
 	add_child(repair_drop)
 	repair_drop.init(drop_value, drop_position)
 	repair_drop.connect("repair_pickup", self, "_on_RepairDrop_player_repair")
-
-# Connected to Player
-func _on_RepairDrop_player_repair(value_repaired):
-	emit_signal("player_heal", value_repaired)

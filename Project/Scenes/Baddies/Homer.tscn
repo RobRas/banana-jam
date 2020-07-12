@@ -6,11 +6,11 @@
 [ext_resource path="res://Scenes/Guns/EnemySingleShot.tscn" type="PackedScene" id=4]
 
 [node name="Homer" instance=ExtResource( 1 )]
+damage_node_path = NodePath("Die1Hit")
 
-[node name="Rush" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Rush" parent="." index="3" instance=ExtResource( 2 )]
 
-[node name="Die1Hit" parent="." index="5" instance=ExtResource( 3 )]
+[node name="Die1Hit" parent="." index="4" instance=ExtResource( 3 )]
 
-[node name="EnemySingleShot" parent="." index="6" instance=ExtResource( 4 )]
-[connection signal="area_entered" from="Area2D" to="Die1Hit" method="_on_Area2D_area_entered"]
+[node name="EnemySingleShot" parent="." index="5" instance=ExtResource( 4 )]
 [connection signal="Baddie_dead" from="Die1Hit" to="." method="_on_Die1Hit_Baddie_dead"]

@@ -1,12 +1,15 @@
 extends KinematicBody2D
 
-signal hit
+signal damaged(damage)
 signal part_broken(part_name)
+signal scrap_gained(amount)
 
 var velocity = Vector2()
 var additional_velocity = Vector2()
 var forward
 export(int) var health = 10
+
+var scrap_value = 0
 
 func _ready():
 	forward = $Forward
@@ -31,18 +34,31 @@ func _process(delta):
 func _physics_process(_delta):
 	move_and_slide(velocity + additional_velocity)
 
-
-func _on_Area2D_body_entered(body):
-	emit_signal("hit")
-
 func _on_player_heal(amount_healed):
 	health += amount_healed
 	print(health)
 
 func _on_Break_body_entered(body):
+	print(body.name)
+
+func bullet_hit(damage):
+	emit_signal("damaged")
 	break_part()
+
+func scrap_hit(scrap, value):
+	print("Scrap")
+	scrap_value += value
+	emit_signal("scrap_gained", value)
+	scrap.destroy()
+	
 
 func break_part():
 	print("Break_body_entered")
 	var part_name = $Abilities.break_random()
 	emit_signal("part_broken", part_name)
+
+
+func _on_Area2D_area_entered(area):
+	if area.get_parent().get_script().get_path().get_file() == "RepairDrop":
+		print("Scrap")
+		emit_signal("scrap_gained", area.value_repaired)

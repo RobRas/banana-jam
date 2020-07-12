@@ -98,7 +98,9 @@ texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Break!"]
 shape = SubResource( 1 )
-[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+
+[node name="RepairDrop" parent="." instance=ExtResource( 16 )]
+position = Vector2( 73.8286, 8.54187 )
 [connection signal="part_broken" from="Player" to="CanvasLayer/HUD" method="_on_Player_part_broken"]
 [connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
 [connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]

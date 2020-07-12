@@ -10,6 +10,7 @@
 bullet_speed = 1200.0
 
 [node name="MouseHold" parent="." index="0" instance=ExtResource( 4 )]
+cooldown = 0.1
 
 [node name="ShootStraight" parent="." index="1" instance=ExtResource( 3 )]
 targetting_path = NodePath("../ForwardTargetting")

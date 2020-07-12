@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+export(int) var damage = 1
 export(float) var kill_time
 
 var _velocity = Vector2()
@@ -19,3 +19,9 @@ func _physics_process(_delta):
 
 func _on_KillTimer_timeout():
 	queue_free()
+
+
+func _on_Area2D_body_entered(body):
+	if body.has_method("bullet_hit"):
+		body.bullet_hit(damage)
+		queue_free()
