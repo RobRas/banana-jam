@@ -100,6 +100,7 @@ func break_part():
 
 # Try to do the opposite of breakage
 func unbreak_part():
+	max_scrap += 1
 	if _current_breaks <= 0:
 		return
 	_current_breaks -= 1
