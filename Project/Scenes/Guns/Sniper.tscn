@@ -51,6 +51,7 @@ script = ExtResource( 8 )
 knockback_initial_speed = Vector2( 1000, 4000 )
 knockback_duration = Vector2( 0.5, 1.8 )
 shoot_path = NodePath("../../MouseHoldAndRelease")
+camera_shake_path = NodePath("../../CameraShake")
 
 [node name="SpeedTween" type="Tween" parent="Breaks/Knockback" index="0"]
 
