@@ -74,7 +74,7 @@ scale_amount = 0.5
 
 [node name="Background" type="Sprite" parent="."]
 show_behind_parent = true
-position = Vector2( 652.61, 329.207 )
+position = Vector2( 512.18, 303.98 )
 texture = ExtResource( 8 )
 
 [node name="FlankerSpawnTimer" type="Timer" parent="."]
@@ -93,6 +93,7 @@ tile_data = PoolIntArray( -1769520, 0, 0, -1769519, 0, 0, -1769518, 0, 0, -17695
 [connection signal="damaged" from="Player" to="CanvasLayer/HUD" method="_on_Player_damaged"]
 [connection signal="overheated" from="Player" to="CanvasLayer/HUD" method="_on_Player_overheated"]
 [connection signal="part_broken" from="Player" to="CanvasLayer/HUD" method="_on_Player_part_broken"]
+[connection signal="part_repaired" from="Player" to="CanvasLayer/HUD" method="_on_Player_part_repaired"]
 [connection signal="scrap_gained" from="Player" to="CanvasLayer/HUD" method="_on_Player_scrap_gained"]
 [connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
 [connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]

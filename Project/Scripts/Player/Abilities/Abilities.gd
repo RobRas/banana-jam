@@ -19,4 +19,6 @@ func break_random():
 
 func unbreak_part():
 	if broken_parts.empty() != true:
-		broken_parts.pop_back().set_broken(false)
+		var part = broken_parts.pop_front()
+		part.set_broken(false)
+		return part.break_name

@@ -34,5 +34,5 @@ break_name = "Shotgun Kickback"
 stream = ExtResource( 6 )
 volume_db = -1.0
 [connection signal="shot" from="ShootSpread" to="." method="_on_shot"]
-[connection signal="shot_input" from="MouseClick" to="Breaks/ShotgunKnockback" method="_on_MouseClick_shot_input"]
 [connection signal="shot_input" from="MouseClick" to="ShootSpread" method="_on_shot_input"]
+[connection signal="shot_input" from="MouseClick" to="Breaks/ShotgunKnockback" method="_on_MouseClick_shot_input"]

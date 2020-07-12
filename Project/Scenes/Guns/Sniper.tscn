@@ -33,6 +33,6 @@ centered = false
 texture = ExtResource( 7 )
 centered = false
 [connection signal="hold_started" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_hold_started"]
-[connection signal="shot_input" from="MouseHoldAndRelease" to="ShootRandom" method="_on_shot_input"]
 [connection signal="shot_input" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_shot_input"]
+[connection signal="shot_input" from="MouseHoldAndRelease" to="ShootRandom" method="_on_shot_input"]
 [connection signal="shot" from="ShootRandom" to="." method="_on_shot"]

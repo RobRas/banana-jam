@@ -24,3 +24,7 @@ func _on_Player_damaged(amout, total_heat):
 
 func _on_Player_overheated():
 	$StatsContainer/Stats/Heat_Module/CenterContainer/HeatBar.value = 0
+
+
+func _on_Player_part_repaired(part_name):
+	$StatsContainer/Stats/ScrapModule/CenterContainer/ScrapBar.value = 0

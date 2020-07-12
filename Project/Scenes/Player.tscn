@@ -99,6 +99,8 @@ modifier = 0.2
 [node name="BreakRotationOffset" type="Node2D" parent="Abilities/Aim"]
 script = ExtResource( 11 )
 break_name = "Stuck Cockpit"
+offset_min = 30.0
+offset_max = 50.0
 
 [node name="BreakRotationStability" type="Node2D" parent="Abilities/Aim"]
 scale = Vector2( 1.00763, 1.0266 )
