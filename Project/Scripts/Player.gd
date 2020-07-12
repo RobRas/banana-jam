@@ -90,7 +90,6 @@ func break_part():
 		critical_sound_playing=true
 		normal_music_playing=false
 	if _current_breaks >= breaks_to_die:
-		print("boom.")
 		emit_signal("blown_up")
 		queue_free()
 		return

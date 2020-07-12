@@ -48,7 +48,7 @@ script = ExtResource( 9 )
 
 [node name="Knockback" type="Node2D" parent="Breaks" index="0"]
 script = ExtResource( 8 )
-knockback_initial_speed = Vector2( 1000, 3000 )
+knockback_initial_speed = Vector2( 1000, 4000 )
 knockback_duration = Vector2( 0.5, 1.8 )
 shoot_path = NodePath("../../MouseHoldAndRelease")
 
@@ -64,9 +64,9 @@ script = ExtResource( 11 )
 [node name="CameraShake" parent="." index="6" instance=ExtResource( 13 )]
 period = 0.1
 [connection signal="hold_started" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_hold_started"]
-[connection signal="shot_input" from="MouseHoldAndRelease" to="Breaks/Knockback" method="_on_MouseClick_shot_input"]
 [connection signal="shot_input" from="MouseHoldAndRelease" to="ShootRandom" method="_on_shot_input"]
-[connection signal="shot_input" from="MouseHoldAndRelease" to="CameraShake" method="_on_need_shake"]
 [connection signal="shot_input" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_shot_input"]
+[connection signal="shot_input" from="MouseHoldAndRelease" to="Breaks/Knockback" method="_on_MouseClick_shot_input"]
+[connection signal="shot_input" from="MouseHoldAndRelease" to="CameraShake" method="_on_need_shake"]
 [connection signal="shot" from="ShootRandom" to="." method="_on_shot"]
 [connection signal="shot" from="ShootRandom" to="Breaks/BouncyBullets" method="_on_Shoot_shot"]

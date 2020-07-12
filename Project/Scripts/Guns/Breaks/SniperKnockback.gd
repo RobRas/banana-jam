@@ -3,6 +3,7 @@ extends Node2D
 export(String) var break_name = "Exploding Backblast"
 export(String) var break_description = "Sniper: Knockback from charge"
 export(bool) var broken
+export(Vector2) var minor_knockback = Vector2(300, 1000)
 export(Vector2) var knockback_initial_speed = Vector2(300, 50000)
 export(Vector2) var knockback_duration = Vector2(0.3, 2.5)
 export(NodePath) var shoot_path
@@ -16,19 +17,21 @@ var _direction = Vector2()
 var _added_speed = 0
 var _previous_speed = 0
 
+var _knockback_value
 
 func init(player):
+	_knockback_value = minor_knockback
 	_player = player
 	_shoot = get_node(shoot_path)
-	set_broken(true)
 
 func set_broken(broken):
 	_broken = broken
+	if _broken:
+		_knockback_value = knockback_initial_speed
+	else:
+		_knockback_value = minor_knockback
 
 func _process(delta):
-	if not _broken: 
-		return
-	
 	_player.additional_velocity -= _direction * _previous_speed
 	_player.additional_velocity += _direction * _added_speed
 	_previous_speed = _added_speed
@@ -44,7 +47,7 @@ func _knockback(value):
 	
 	var strength = value
 	var duration = lerp(knockback_duration.x, knockback_duration.y, strength)
-	var speed = lerp(knockback_initial_speed.x, knockback_initial_speed.y, strength)
+	var speed = lerp(_knockback_value.x, _knockback_value.y, strength)
 	
 	_added_speed = speed
 	$SpeedTween.remove_all()
@@ -61,5 +64,5 @@ func is_broken():
 	return _broken
 
 func _on_MouseClick_shot_input(input_value):
-	if _equipped and _broken:
+	if _equipped:
 		_knockback(input_value)

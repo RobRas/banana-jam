@@ -25,6 +25,8 @@ func _process(delta):
 
 func set_broken(broken):
 	_broken = broken
+	if not _broken:
+		_hold_node.set_frozen(false)
 
 func is_broken():
 	return _broken
