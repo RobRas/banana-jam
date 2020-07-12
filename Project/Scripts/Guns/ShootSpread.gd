@@ -27,6 +27,7 @@ func shoot(bullet_speed):
 		emit_signal("shot", bullet)
 		var rot = Vector2(1, 0).angle_to(bullet_velocity)
 		bullet.init(global_position, rot, bullet_velocity)
+		direction = direction.rotated(_angle_increment)
 
 
 func _on_shot_input(input_value):
