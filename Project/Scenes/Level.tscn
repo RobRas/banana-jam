@@ -56,8 +56,9 @@ autoplay = true
 [node name="OverHeat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
-[node name="Critical OverHeat" type="AudioStreamPlayer" parent="."]
+[node name="CriticalOverHeat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -7.0
 
 [node name="Explosion" type="CPUParticles2D" parent="."]
 emitting = false

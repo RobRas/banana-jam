@@ -83,3 +83,7 @@ func _on_Baddie_dead(drop_value, drop_position):
 
 func _on_Player_blown_up():
 	get_tree().change_scene("res://Scenes/Death Splash.tscn")
+
+func _on_critical_status():
+	$MainTheme.stop()
+	$CriticalOverHeat.play()

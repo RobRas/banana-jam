@@ -3,8 +3,9 @@ extends KinematicBody2D
 export(int) var max_heat = 10
 export(int) var max_scrap = 10
 export(float) var invulnerability_time = 5.0
-export(int) var breaks_to_die = 8
+export(int) var breaks_to_die = 2
 var _current_breaks = 0
+var critical_sound_playing
 
 signal damaged(damage)
 signal overheated()
@@ -12,6 +13,7 @@ signal part_broken(part_name)
 signal scrap_gained(amount, total)
 signal part_repaired(part_name)
 signal blown_up
+signal critical_status
 
 var velocity = Vector2()
 var additional_velocity = Vector2()
@@ -23,7 +25,9 @@ var _invulnerable = false
 
 func _ready():
 	$InvulnTimer.wait_time = invulnerability_time
-
+	critical_sound_playing=false
+	var world = get_tree().get_nodes_in_group("World")[0]
+	connect("critical_status", world, "_on_critical_status")
 	forward = $Forward
 	for ability in $Abilities.get_children():
 		ability.init(self)
@@ -74,6 +78,10 @@ func scrap_hit(scrap, value):
 
 func break_part():
 	_current_breaks += 1
+	if _current_breaks >= breaks_to_die-1 and critical_sound_playing==false:
+		#print("here")
+		emit_signal("critical_status")
+		critical_sound_playing==true
 	if _current_breaks >= breaks_to_die:
 		print("boom.")
 		emit_signal("blown_up")
