@@ -87,3 +87,8 @@ func _on_Player_blown_up():
 func _on_critical_status():
 	$MainTheme.stop()
 	$CriticalOverHeat.play()
+
+func _on_critical_repair():
+	$CriticalOverHeat.stop()
+	$MainTheme.play()
+	

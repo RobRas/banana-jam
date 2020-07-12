@@ -3,9 +3,10 @@ extends KinematicBody2D
 export(int) var max_heat = 10
 export(int) var max_scrap = 10
 export(float) var invulnerability_time = 5.0
-export(int) var breaks_to_die = 2
+export(int) var breaks_to_die = 3
 var _current_breaks = 0
 var critical_sound_playing
+var normal_music_playing
 
 signal damaged(damage)
 signal overheated()
@@ -14,6 +15,8 @@ signal scrap_gained(amount, total)
 signal part_repaired(part_name)
 signal blown_up
 signal critical_status
+signal critical_repaired
+
 
 var velocity = Vector2()
 var additional_velocity = Vector2()
@@ -26,8 +29,10 @@ var _invulnerable = false
 func _ready():
 	$InvulnTimer.wait_time = invulnerability_time
 	critical_sound_playing=false
+	normal_music_playing=true
 	var world = get_tree().get_nodes_in_group("World")[0]
 	connect("critical_status", world, "_on_critical_status")
+	connect("critical_repaired", world, "_on_critical_repair")
 	forward = $Forward
 	for ability in $Abilities.get_children():
 		ability.init(self)
@@ -78,10 +83,11 @@ func scrap_hit(scrap, value):
 
 func break_part():
 	_current_breaks += 1
+	print(_current_breaks)
 	if _current_breaks >= breaks_to_die-1 and critical_sound_playing==false:
-		#print("here")
 		emit_signal("critical_status")
-		critical_sound_playing==true
+		critical_sound_playing=true
+		normal_music_playing=false
 	if _current_breaks >= breaks_to_die:
 		print("boom.")
 		emit_signal("blown_up")
@@ -100,6 +106,10 @@ func unbreak_part():
 	var part_name = $Abilities.unbreak_part()
 	emit_signal("part_repaired", part_name)
 	$RepairSound.play()
+	if _current_breaks < breaks_to_die-1 and critical_sound_playing==true:
+		critical_sound_playing=false
+		normal_music_playing=true
+		emit_signal("critical_repaired")
 
 func _on_Area2D_area_entered(area):
 	if area.get_parent().get_script().get_path().get_file() == "RepairDrop":
