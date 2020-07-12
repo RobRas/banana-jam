@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Art Assets/Audio/MainThemeLoop.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Art Assets/Audio/CriticalOverHeatLoop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Art Assets/Audio/OverHeatLoop.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Art Assets/Bullets and Missiles/GooBall.png" type="Texture" id=7]
 [ext_resource path="res://Art Assets/Tilemap/DesertBackgroundEnlarged.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Baddies/Flanker.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=10]
@@ -18,7 +17,6 @@
 [ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scripts/Player/Camera2D.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/CameraFollow.gd" type="Script" id=18]
-[ext_resource path="res://icon.png" type="Texture" id=19]
 
 [node name="Level" type="Node2D" groups=[
 "World",
@@ -31,10 +29,6 @@ GatlingSmoke = ExtResource( 14 )
 Homer = ExtResource( 3 )
 Flanker = ExtResource( 9 )
 RepairDrop = ExtResource( 15 )
-
-[node name="icon" type="Sprite" parent="."]
-position = Vector2( -408.728, -74.5875 )
-texture = ExtResource( 19 )
 
 [node name="Player" parent="." groups=[
 "player",
@@ -56,21 +50,6 @@ stream = ExtResource( 6 )
 [node name="CriticalOverHeat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -7.0
-
-[node name="Explosion" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 200
-lifetime = 0.2
-one_shot = true
-explosiveness = 0.5
-randomness = 0.2
-texture = ExtResource( 7 )
-emission_shape = 1
-emission_sphere_radius = 0.5
-spread = 180.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 100.0
-scale_amount = 0.5
 
 [node name="Background" type="Sprite" parent="."]
 show_behind_parent = true

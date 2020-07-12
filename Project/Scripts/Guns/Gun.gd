@@ -2,6 +2,7 @@ extends Node2D
 
 export(PackedScene) var bullet_scene
 export(float) var bullet_speed
+var gatling_sound_playing=false
 
 signal shot(bullet)
 
@@ -34,5 +35,8 @@ func is_fully_broken():
 
 func _on_shot(bullet):
 	emit_signal("shot", bullet)
-	$GunSound.play()
+	if $GunSound.playing==false:
+		$GunSound.play()
+		
+	
 	

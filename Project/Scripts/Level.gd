@@ -24,13 +24,6 @@ func _on_player_shot(bullet):
 #func _on_Player_hit():
 #	hit_count += 1
 
-func _on_enemy_hit(pos):
-	var explode = GooExplosion.instance()
-	add_child(explode)
-	explode.position=pos
-	explode.one_shot=true
-	explode.emitting=true
-	
 
 func _on_HomerSpawnTimer_timeout():
 	var homer = Homer.instance()
@@ -79,6 +72,12 @@ func _on_Baddie_dead(drop_value, drop_position):
 	var repair_drop = RepairDrop.instance()
 	add_child(repair_drop)
 	repair_drop.init(drop_value, drop_position)
+	
+	var explode = GooExplosion.instance()
+	add_child(explode)
+	explode.position=drop_position
+	explode.emitting=true
+	explode.one_shot=true
 
 
 func _on_Player_blown_up():
