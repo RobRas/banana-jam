@@ -7,5 +7,9 @@ func break_random():
 		if not break_type.is_fully_broken():
 			breakable_types.push_back(break_type)
 	
+	if breakable_types.size() == 0:
+		printerr("No more breaks")
+		return null
+	
 	var i = randi() % breakable_types.size()
 	return breakable_types[i].break_random()

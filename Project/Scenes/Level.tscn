@@ -102,6 +102,7 @@ shape = SubResource( 1 )
 [node name="RepairDrop" parent="." instance=ExtResource( 16 )]
 position = Vector2( 73.8286, 8.54187 )
 [connection signal="part_broken" from="Player" to="CanvasLayer/HUD" method="_on_Player_part_broken"]
+[connection signal="scrap_gained" from="Player" to="CanvasLayer/HUD" method="_on_Player_scrap_gained"]
 [connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
 [connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]
 [connection signal="body_entered" from="Break!" to="Player" method="_on_Break_body_entered"]

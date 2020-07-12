@@ -209,5 +209,8 @@ spread = 10.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 100.0
 color_ramp = SubResource( 9 )
+
+[node name="InvulnTimer" type="Timer" parent="."]
 [connection signal="timeout" from="Abilities/Movement/RandomJump/JumpCooldown" to="Abilities/Movement/RandomJump" method="_on_JumpCooldown_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="InvulnTimer" to="." method="_on_InvulnTimer_timeout"]
