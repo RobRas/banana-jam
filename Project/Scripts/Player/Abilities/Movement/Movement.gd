@@ -70,14 +70,20 @@ func _get_input_mouse():
 	return input_direction.normalized()
 
 
-func break_operation():
+func break_random():
 	var breakable_children = []
 	for child in get_children():
 		if not child.is_broken():
 			breakable_children.push_back(child)
 	
-	if breakable_children.len == 0:
+	if breakable_children.size() == 0:
 		return false
 	
-	var child_index = randi() % breakable_children.len
-	return breakable_children.set_broken(true)
+	var child_index = randi() % breakable_children.size()
+	breakable_children[child_index].set_broken(true)
+
+func is_fully_broken():
+	for child in get_children():
+		if not child.is_broken():
+			return false
+	return true

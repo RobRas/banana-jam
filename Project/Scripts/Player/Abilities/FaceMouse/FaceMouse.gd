@@ -47,17 +47,17 @@ func _mouse_rotation(delta):
 	
 	_player.rotation += rotation_angle
 
-func break_operation():
+func break_random():
 	var breakable_children = []
 	for child in get_children():
 		if not child.is_broken():
 			breakable_children.push_back(child)
 	
-	if breakable_children.len == 0:
+	if breakable_children.size() == 0:
 		return false
 	
-	var child_index = randi() % breakable_children.len
-	return breakable_children.set_broken(true)
+	var child_index = randi() % breakable_children.size()
+	breakable_children[child_index].set_broken(true)
 	
 
 func set_speed(new_speed):
@@ -65,3 +65,9 @@ func set_speed(new_speed):
 
 func get_turn_speed_rad():
 	return _turn_speed_rad
+
+func is_fully_broken():
+	for child in get_children():
+		if not child.is_broken():
+			return false
+	return true

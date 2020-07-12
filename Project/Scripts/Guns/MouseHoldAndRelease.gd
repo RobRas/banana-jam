@@ -33,10 +33,10 @@ func _process(delta):
 			_current_hold_time = 0.0
 			emit_signal("shot_input", percent_held)
 
-func enable():
+func equip():
 	_current_cooldown = cooldown
 	set_process(true)
 
-func disable():
+func unequip():
 	_current_hold_time = 0.0
 	set_process(false)

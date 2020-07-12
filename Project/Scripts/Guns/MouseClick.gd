@@ -23,8 +23,8 @@ func _process(delta):
 func _on_shot_input():
 	var velocity
 
-func enable():
+func equip():
 	set_process(true)
 
-func disable():
+func unequip():
 	set_process(false)

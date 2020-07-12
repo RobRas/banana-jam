@@ -1,27 +1,31 @@
 extends Node2D
 
+export(String) var break_name = "Rotation Slowdown"
 export(bool) var broken = false
 export(float) var accel_modifier = 0.2
 export(float) var friction_modifier = 0.4 # feels better with less friction
 
 var _broken = false
 
-func _process(delta):
-	#to wait for parent to ready
+func init(player):
 	set_broken(broken)
-	set_process(false)
 
 func modify_velocity(velocity, forward):
 	return velocity
 
 func set_broken(broken):
-	if _broken == broken:
-		return false
-	
-	get_parent().acceleration *= accel_modifier
-	get_parent().friction *= friction_modifier
 	_broken = broken
-	return true
+	if _broken:
+		get_parent().acceleration *= accel_modifier
+		get_parent().friction *= friction_modifier
+	else:
+		get_parent().acceleration /= accel_modifier
+		get_parent().friction /= friction_modifier
+	if _broken:
+		print("Break: " + break_name + "!")
+	else:
+		print("Repaired: " + break_name + "!")
+
 
 func is_broken():
 	return _broken

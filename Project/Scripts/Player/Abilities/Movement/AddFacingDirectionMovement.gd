@@ -1,5 +1,6 @@
 extends Node2D
 
+export(String) var break_name = "Rotation Slowdown"
 export(bool) var broken = false
 export(float) var speed = 100
 
@@ -24,13 +25,13 @@ func modify_velocity(velocity, forward):
 	return velocity
 
 func set_broken(broken):
-	if _broken == broken:
-		return false
-	
+	_broken = broken
 	var direction_scalar = -1 if (randi() % 2) == 0 else 1
 	_direction = Vector2(direction_scalar, 0)
-	_broken = broken
-	return true
+	if _broken:
+		print("Break: " + break_name + "!")
+	else:
+		print("Repaired: " + break_name + "!")
 
 func is_broken():
 	return _broken

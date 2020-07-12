@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://Scenes/ShotgunSmoke.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/GooExplosion.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/RepairDrop.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 96.1767, 96.6889 )
 
 [node name="Level" type="Node2D" groups=[
 "World",
@@ -21,6 +25,7 @@ script = ExtResource( 1 )
 Baddie = ExtResource( 10 )
 GooExplosion = ExtResource( 12 )
 ShotgunSmoke = ExtResource( 11 )
+GatlingSmoke = ExtResource( 14 )
 Homer = ExtResource( 3 )
 Flanker = ExtResource( 9 )
 RepairDrop = ExtResource( 13 )
@@ -45,7 +50,7 @@ autostart = true
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -4.0
+volume_db = -6.0
 
 [node name="OverHeat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -76,6 +81,20 @@ texture = ExtResource( 8 )
 [node name="FlankerSpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 14 )]
+
+[node name="Break!" type="Area2D" parent="."]
+position = Vector2( 149.931, -171.698 )
+
+[node name="Sprite2" type="Sprite" parent="Break!"]
+scale = Vector2( 3, 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Break!"]
+shape = SubResource( 1 )
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
 [connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]
+[connection signal="body_entered" from="Break!" to="Player" method="_on_Break_body_entered"]

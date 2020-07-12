@@ -1,5 +1,6 @@
 extends Node2D
 
+export(String) var break_name = "Rotation Slowdown"
 export(bool) var broken = false
 export(Vector2) var jump_initial_speed = Vector2(1200, 1500)
 export(float) var jump_duration = 0.5
@@ -20,12 +21,13 @@ func modify_velocity(velocity, forward):
 	return velocity + _direction * _added_speed
 
 func set_broken(broken):
-	if _broken == broken:
-		return false
-
 	_broken = broken
-	jump()
-	return true
+	$JumpCooldown.wait_time = rand_range(jump_cooldown.x, jump_cooldown.y)
+	$JumpCooldown.start()
+	if _broken:
+		print("Break: " + break_name + "!")
+	else:
+		print("Repaired: " + break_name + "!")
 
 func is_broken():
 	return _broken

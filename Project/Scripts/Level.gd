@@ -3,6 +3,7 @@ extends Node2D
 export (PackedScene) var Baddie
 export (PackedScene) var GooExplosion
 export (PackedScene) var ShotgunSmoke
+export (PackedScene) var GatlingSmoke
 export (PackedScene) var Homer
 export (PackedScene) var Flanker
 export (PackedScene) var RepairDrop
@@ -11,6 +12,10 @@ signal player_heal
 
 var hit_count;
 var rand = RandomNumberGenerator.new()
+var shotgun_smoke_velocity=300.0
+var gatling_smoke_velocity=300.0
+const PARAM_INITIAL_LINEAR_VELOCITY=0
+const PARAM_ANGLE = 7
 
 func _on_player_shot(bullet):
 	var current_position = bullet.position
@@ -67,6 +72,15 @@ func _shotgun_smoke():
 	smoke.set_rotation($Player.get_rotation())
 	smoke.emitting=true
 	smoke.one_shot=true
+
+func _gatling_smoke():
+	var gsmoke = GatlingSmoke.instance()
+	add_child(gsmoke)
+	gsmoke.position=$Player.position
+	gsmoke.set_rotation($Player.get_rotation())
+	gsmoke.emitting=true
+	gsmoke.one_shot=true
+	
 
 # Emitted in Baddie>#HitsToDie node
 func _on_Baddie_dead(drop_value, drop_position):

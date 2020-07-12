@@ -37,3 +37,6 @@ func _on_Area2D_body_entered(body):
 func _on_player_heal(amount_healed):
 	health += amount_healed
 	print(health)
+
+func _on_Break_body_entered(body):
+	$Abilities.break_random()

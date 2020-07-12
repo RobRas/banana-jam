@@ -1,6 +1,6 @@
 extends Node2D
 
-
+export(String) var break_name = "Rotation Slowdown"
 export(bool) var broken
 export(float) var max_turn = 1.2
 export(float) var speed = 250
@@ -16,13 +16,13 @@ func _ready():
 	_max_turn_rads = deg2rad(max_turn)
 
 func set_broken(broken):
-	if _broken == broken:
-		return false
-
-	_broken = true
+	_broken = broken
 	_noise.seed = randi()
 	_noise.octaves = 3
-	return true
+	if _broken:
+		print("Break: " + break_name + "!")
+	else:
+		print("Repaired: " + break_name + "!")
 
 func modify_rotation_angle(delta, angle):
 	if not _broken:
