@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Guns/Gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Guns/ Input/MouseClick.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/Guns/Breaks/GunBreaks.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Guns/Breaks/BiggerSpread.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Guns/Breaks/AmmoKill.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/CameraShake.tscn" type="PackedScene" id=11]
 
 [node name="Shotgun" instance=ExtResource( 1 )]
 bullet_scene = ExtResource( 5 )
@@ -43,7 +44,14 @@ script = ExtResource( 10 )
 [node name="GunSound" parent="." index="4"]
 stream = ExtResource( 6 )
 volume_db = -1.0
+
+[node name="CameraShake" parent="." index="5" instance=ExtResource( 11 )]
+period = 0.12
+magnitude = Vector2( 20, 20 )
+rot = 3.0
+duration = 0.3
 [connection signal="shot" from="ShootSpread" to="." method="_on_shot"]
 [connection signal="shot" from="ShootSpread" to="Breaks/AmmoKill" method="_on_ShootSpread_shot"]
-[connection signal="shot_input" from="MouseClick" to="Breaks/ShotgunKnockback" method="_on_MouseClick_shot_input"]
 [connection signal="shot_input" from="MouseClick" to="ShootSpread" method="_on_shot_input"]
+[connection signal="shot_input" from="MouseClick" to="Breaks/ShotgunKnockback" method="_on_MouseClick_shot_input"]
+[connection signal="shot_input" from="MouseClick" to="CameraShake" method="_on_need_shake"]

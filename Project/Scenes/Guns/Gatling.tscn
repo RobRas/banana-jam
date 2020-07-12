@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Guns/Gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Guns/Targetting/ForwardTargetting.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/Guns/Breaks/IncreaseRandomOverTime.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Guns/SlowMovement.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Guns/Breaks/VariableSpeed.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/CameraShake.tscn" type="PackedScene" id=11]
 
 [node name="Gatling" instance=ExtResource( 1 )]
 bullet_scene = ExtResource( 6 )
@@ -43,5 +44,12 @@ hold_path = NodePath("../../MouseHold")
 [node name="VariableSpeed" type="Node2D" parent="Breaks" index="2"]
 script = ExtResource( 10 )
 hold_path = NodePath("../../MouseHold")
+
+[node name="CameraShake" parent="." index="5" instance=ExtResource( 11 )]
+period = 0.05
+magnitude = Vector2( 4, 4 )
+rot = 1.0
+duration = 0.08
 [connection signal="shot_input" from="MouseHold" to="ShootRandom" method="_on_shot_input"]
+[connection signal="shot_input" from="MouseHold" to="CameraShake" method="_on_need_shake"]
 [connection signal="shot" from="ShootRandom" to="." method="_on_shot"]
