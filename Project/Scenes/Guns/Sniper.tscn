@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Guns/ShotType/ShootRandom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/Targetting/ForwardTargetting.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Bullets/BulletAP.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/Guns/SniperAimVisuals.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Scripts/Guns/SniperAimVisuals.gd" type="Script" id=6]
 [ext_resource path="res://Art Assets/Gun Stuff/SniperAim.png" type="Texture" id=7]
 
 [node name="Sniper" instance=ExtResource( 1 )]
@@ -33,6 +33,6 @@ centered = false
 texture = ExtResource( 7 )
 centered = false
 [connection signal="hold_started" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_hold_started"]
-[connection signal="shot_input" from="MouseHoldAndRelease" to="ShootRandom" method="_on_shot_input"]
 [connection signal="shot_input" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_shot_input"]
+[connection signal="shot_input" from="MouseHoldAndRelease" to="ShootRandom" method="_on_shot_input"]
 [connection signal="shot" from="ShootRandom" to="." method="_on_shot"]

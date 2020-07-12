@@ -26,3 +26,4 @@ func _on_KillTimer_timeout():
 func _on_Area2D_body_entered(body):
 	if body.has_method("bullet_hit"):
 		body.bullet_hit(damage)
+	emit_signal("hit", body)

@@ -8,6 +8,7 @@ signal damaged(damage)
 signal overheated()
 signal part_broken(part_name)
 signal scrap_gained(amount, total)
+signal part_repaired(part_name)
 
 var velocity = Vector2()
 var additional_velocity = Vector2()
@@ -23,9 +24,6 @@ func _ready():
 	forward = $Forward
 	for ability in $Abilities.get_children():
 		ability.init(self)
-	
-	# Listen for repair pickup repairing from Level
-	get_tree().get_nodes_in_group("World")[0].connect("player_heal", self, "_on_player_heal")
 
 func _process(delta):
 	if velocity.length()>0:
@@ -73,8 +71,8 @@ func break_part():
 
 # Try to do the opposite of breakage
 func unbreak_part():
-	print("Player: Unbreak_part()")
 	var part_name = $Abilities.unbreak_part()
+	emit_signal("part_repaired", part_name)
 	$RepairSound.play()
 
 func _on_Area2D_area_entered(area):
