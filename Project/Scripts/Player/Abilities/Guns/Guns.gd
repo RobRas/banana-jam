@@ -41,7 +41,6 @@ func break_random():
 			breakable_guns.push_back(gun)
 	
 	var gun_index = randi() % breakable_guns.size()
-	print("Gun")
 	return breakable_guns[gun_index].break_random()
 
 func is_fully_broken():
