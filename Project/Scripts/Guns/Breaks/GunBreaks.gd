@@ -3,7 +3,8 @@ extends Node2D
 
 func init(player):
 	for child in get_children():
-		child.init(player)
+		if child.has_method("init"):
+			child.init(player)
 		child.unequip()
 
 func equip():

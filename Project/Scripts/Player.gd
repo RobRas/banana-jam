@@ -100,3 +100,9 @@ func _set_invulnerable():
 
 func _on_InvulnTimer_timeout():
 	_invulnerable = false
+
+func get_max_speed():
+	return $Abilities/Movement.max_speed
+
+func set_max_speed(new_value):
+	$Abilities/Movement.max_speed = new_value

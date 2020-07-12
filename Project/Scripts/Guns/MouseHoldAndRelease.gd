@@ -14,6 +14,7 @@ export(float) var forgiveness = 0.15
 
 var _percent_held = 0
 var _holding = false
+var _frozen = false
 
 
 func _process(delta):
@@ -26,6 +27,7 @@ func _process(delta):
 		_percent_held = 0.0
 		emit_signal("hold_started")
 	if Input.is_action_pressed("shoot") and _holding:
+		if not _frozen:
 			_current_hold_time += delta
 			_percent_held = (_current_hold_time - min_hold_time) / (max_hold_time - min_hold_time)
 			_percent_held = min(_percent_held + forgiveness, 1.0)
@@ -41,12 +43,15 @@ func _process(delta):
 func get_percent_held():
 	return _percent_held
 
-func equip():
-	_current_cooldown = cooldown
+func set_frozen(new_frozen):
+	_frozen = new_frozen
+
+func equip(): 
 	_holding = false
 	set_process(true)
 
 func unequip():
+	_frozen = false
 	_current_hold_time = 0.0
 	_holding = false
 	set_process(false)

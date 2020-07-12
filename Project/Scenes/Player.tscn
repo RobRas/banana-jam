@@ -98,7 +98,7 @@ modifier = 0.2
 
 [node name="BreakRotationOffset" type="Node2D" parent="Abilities/Aim"]
 script = ExtResource( 11 )
-break_name = "Stuck Cockpit"
+break_name = " Twisted Cockpit"
 offset_min = 30.0
 offset_max = 50.0
 

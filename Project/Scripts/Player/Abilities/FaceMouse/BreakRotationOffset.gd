@@ -2,8 +2,8 @@ extends Node2D
 
 export(String) var break_name = "Rotation Slowdown"
 export(bool) var broken
-export(float) var offset_min = 18
-export(float) var offset_max = 30
+export(float) var offset_min = 25
+export(float) var offset_max = 45
 
 var _broken = false
 var _offset_rads

@@ -19,12 +19,21 @@ func init(position, rotation, velocity):
 	global_rotation = rotation
 	_velocity = velocity
 
-func _physics_process(_delta):
-	_velocity = move_and_slide(_velocity)
+func set_kill_time(new_kill_time):
+	$KillTimer.wait_time = new_kill_time
+	$KillTimer.start()
+
+func _physics_process(delta):
+	var collision = move_and_collide(_velocity * delta)
+	if collision:
+		_velocity = collision.normal * _velocity.length()
+		global_rotation = Vector2(1,0).angle_to(collision.normal)
 
 func _on_KillTimer_timeout():
 	queue_free()
 
+func set_enemy_bounce():
+	set_collision_mask_bit(2, true)
 
 func _on_Area2D_body_entered(body):
 	if body.has_method("bullet_hit"):

@@ -12,13 +12,13 @@ signal shot(bullet)
 var _angle_increment
 
 func _ready():
-	_angle_increment = deg2rad(angle / (bullet_count - 1))
 	_targetting = get_node(targetting_path)
 	
 	var world = get_tree().get_nodes_in_group("World")[0]
 	connect("shot", world, "_on_player_shot")
 
 func shoot(bullet_speed):
+	_angle_increment = deg2rad(angle / (bullet_count - 1))
 	var front_direction = _targetting.get_direction()
 	var direction = front_direction.rotated(-deg2rad(angle / 2.0))
 	for _bullet_index in bullet_count:

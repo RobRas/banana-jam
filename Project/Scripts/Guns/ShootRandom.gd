@@ -8,6 +8,9 @@ export(int) var bullet_count = 1
 export(NodePath) var targetting_path
 var _targetting
 
+var use_given_input = true
+var static_value = 0
+
 signal shot(bullet)
 
 func _ready():
@@ -17,11 +20,8 @@ func _ready():
 	connect("shot", world, "_on_player_shot")
 
 func shoot(bullet_speed, input_value):
-	var max_angle
-	if input_value == 0:
-		max_angle = starting_angle / 2.0
-	else:
-		max_angle = (1.0 - input_value) * starting_angle / 2.0
+	var max_angle = (1.0 - input_value) * starting_angle / 2.0
+	print(max_angle)
 	var front_direction = _targetting.get_direction()
 	for _bullet_index in bullet_count:
 		var angle = deg2rad(rand_range(-max_angle, max_angle))
@@ -34,5 +34,8 @@ func shoot(bullet_speed, input_value):
 
 
 func _on_shot_input(input_value):
-	shoot(get_parent().bullet_speed, input_value)
+	if use_given_input:
+		shoot(get_parent().bullet_speed, input_value)
+	else:
+		shoot(get_parent().bullet_speed, static_value)
 
