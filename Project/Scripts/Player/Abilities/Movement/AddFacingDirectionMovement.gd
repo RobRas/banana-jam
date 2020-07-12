@@ -26,12 +26,12 @@ func modify_velocity(velocity, forward):
 
 func set_broken(broken):
 	_broken = broken
-	var direction_scalar = -1 if (randi() % 2) == 0 else 1
-	_direction = Vector2(direction_scalar, 0)
-	if _broken:
-		print("Break: " + break_name + "!")
+	if not _broken:
+		_player.additional_velocity -= _last_add
+		_last_add = Vector2()
 	else:
-		print("Repaired: " + break_name + "!")
+		var direction_scalar = -1 if (randi() % 2) == 0 else 1
+		_direction = Vector2(direction_scalar, 0)
 
 func is_broken():
 	return _broken
