@@ -1,4 +1,5 @@
 extends Node
 
-func _on_Area2D_area_entered(area):
+
+func _on_BulletLight_hit(body):
 	get_parent().queue_free()

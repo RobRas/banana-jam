@@ -1,6 +1,6 @@
 extends Node
 
-signal Baddie_dead
+signal Baddie_dead(value, position)
 export (int) var drop_value = 1;
 
 func damage(_damage):

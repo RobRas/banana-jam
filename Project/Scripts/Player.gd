@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
+export(float) var invulnerability_time = 3.0
+
 signal damaged(damage)
 signal part_broken(part_name)
-signal scrap_gained(amount)
+signal scrap_gained(amount, total)
 
 var velocity = Vector2()
 var additional_velocity = Vector2()
@@ -10,8 +12,11 @@ var forward
 export(int) var health = 10
 
 var scrap_value = 0
+var _invulnerable = false
 
 func _ready():
+	$InvulnTimer.wait_time = invulnerability_time
+	
 	forward = $Forward
 	for ability in $Abilities.get_children():
 		ability.init(self)
@@ -42,13 +47,16 @@ func _on_Break_body_entered(body):
 	print(body.name)
 
 func bullet_hit(damage):
+	if _invulnerable:
+		return
 	emit_signal("damaged")
 	break_part()
+	_set_invulnerable()
 
 func scrap_hit(scrap, value):
 	print("Scrap")
 	scrap_value += value
-	emit_signal("scrap_gained", value)
+	emit_signal("scrap_gained", value, scrap_value)
 	scrap.destroy()
 	
 
@@ -62,3 +70,13 @@ func _on_Area2D_area_entered(area):
 	if area.get_parent().get_script().get_path().get_file() == "RepairDrop":
 		print("Scrap")
 		emit_signal("scrap_gained", area.value_repaired)
+
+func _set_invulnerable():
+	if _invulnerable:
+		return
+	_invulnerable = true
+	$InvulnTimer.start()
+
+
+func _on_InvulnTimer_timeout():
+	_invulnerable = false
