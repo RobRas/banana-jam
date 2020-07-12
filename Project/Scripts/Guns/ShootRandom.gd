@@ -29,10 +29,10 @@ func shoot(bullet_speed, input_value):
 		var bullet_velocity = direction * get_parent().bullet_speed
 		var bullet = get_parent().bullet_scene.instance()
 		emit_signal("shot", bullet)
-		bullet.init(global_position, bullet_velocity)
+		var rot = Vector2(1, 0).angle_to(bullet_velocity)
+		bullet.init(global_position, rot, bullet_velocity)
 
 
 func _on_shot_input(input_value):
-	print("Shot")
 	shoot(get_parent().bullet_speed, input_value)
 

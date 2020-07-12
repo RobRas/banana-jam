@@ -14,8 +14,9 @@ func _ready():
 	$KillTimer.wait_time = kill_time
 	$KillTimer.start()
 
-func init(position, velocity):
-	self.position = position
+func init(position, rotation, velocity):
+	global_position = position
+	global_rotation = rotation
 	_velocity = velocity
 
 func _physics_process(_delta):
