@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export(int) var max_heat = 10
-export(int) var max_scrap = 20
+export(int) var max_scrap = 10
 export(float) var invulnerability_time = 5.0
 export(int) var breaks_to_die = 8
 var _current_breaks = 0
@@ -61,7 +61,7 @@ func scrap_hit(scrap, value):
 	emit_signal("scrap_gained", value, scrap_value)
 	scrap.destroy()
 	
-	if scrap_value >= 5:
+	if scrap_value >= max_scrap:
 		scrap_value = 0
 		unbreak_part()
 	
