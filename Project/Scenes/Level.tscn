@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -92,6 +92,7 @@ drag_margin_bottom = 0.1
 script = ExtResource( 17 )
 
 [node name="ShakeTween" type="Tween" parent="CameraFollow/Camera2D"]
+
 [node name="BaddieDead" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = 8.0
