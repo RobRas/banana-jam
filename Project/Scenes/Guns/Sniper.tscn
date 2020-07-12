@@ -10,7 +10,7 @@
 
 [node name="Sniper" instance=ExtResource( 1 )]
 bullet_scene = ExtResource( 5 )
-bullet_speed = 3500.0
+bullet_speed = 600.0
 
 [node name="MouseHoldAndRelease" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -33,6 +33,6 @@ centered = false
 texture = ExtResource( 7 )
 centered = false
 [connection signal="hold_started" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_hold_started"]
-[connection signal="shot_input" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_shot_input"]
 [connection signal="shot_input" from="MouseHoldAndRelease" to="ShootRandom" method="_on_shot_input"]
+[connection signal="shot_input" from="MouseHoldAndRelease" to="AimVisuals" method="_on_MouseHoldAndRelease_shot_input"]
 [connection signal="shot" from="ShootRandom" to="." method="_on_shot"]

@@ -4,14 +4,16 @@
 [ext_resource path="res://Art Assets/Bullets and Missiles/Beam Sniper.tres" type="SpriteFrames" id=3]
 
 [node name="BulletAP" instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
 collision_layer = 2
 collision_mask = 32
 sprite_frames = ExtResource( 3 )
 damage = 5
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.8, 1 )
+scale = Vector2( 1, 1 )
 frames = ExtResource( 3 )
+frame = 1
 playing = true
 
 [node name="KillTimer" parent="." index="2"]
