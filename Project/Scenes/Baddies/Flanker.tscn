@@ -4,12 +4,13 @@
 [ext_resource path="res://Scenes/Baddies/Die1Hit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Baddies/CircleApproach.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Guns/EnemySingleShot.tscn" type="PackedScene" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Art Assets/Monsters/Green Grunt.png" type="Texture" id=5]
 
 [node name="Flanker" instance=ExtResource( 1 )]
 damage_node_path = NodePath("Die1Hit")
 
 [node name="Sprite" parent="." index="0"]
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="Die1Hit" parent="." index="3" instance=ExtResource( 2 )]
