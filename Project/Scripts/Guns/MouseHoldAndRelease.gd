@@ -16,6 +16,7 @@ var _percent_held = 0
 var _holding = false
 var _frozen = false
 var self_enabled = true
+var charging_sound= false
 
 
 func _process(delta):
@@ -34,6 +35,9 @@ func _process(delta):
 			_current_hold_time += delta
 			_percent_held = (_current_hold_time - min_hold_time) / (max_hold_time - min_hold_time)
 			_percent_held = min(_percent_held + forgiveness, 1.0)
+			if charging_sound==false:
+				$ChargeSound.play()
+				charging_sound=true
 	
 	if Input.is_action_just_released("shoot") and _holding:
 			_percent_held = (_current_hold_time - min_hold_time) / (max_hold_time - min_hold_time)
@@ -41,6 +45,8 @@ func _process(delta):
 			_current_cooldown = cooldown
 			_current_hold_time = 0.0
 			_holding = false
+			charging_sound=false
+			$ChargeSound.stop()
 			emit_signal("shot_input", _percent_held)
 
 func get_percent_held():
