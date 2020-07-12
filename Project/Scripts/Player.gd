@@ -20,7 +20,7 @@ signal critical_repaired
 var velocity = Vector2()
 var additional_velocity = Vector2()
 var forward
-var heat = 0
+var heat = 7
 
 var scrap_value = 0
 var _invulnerable = false
@@ -100,6 +100,7 @@ func break_part():
 
 # Try to do the opposite of breakage
 func unbreak_part():
+	max_scrap += 1
 	if _current_breaks <= 0:
 		return
 	_current_breaks -= 1
