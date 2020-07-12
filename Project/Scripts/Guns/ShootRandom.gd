@@ -21,7 +21,6 @@ func _ready():
 
 func shoot(bullet_speed, input_value):
 	var max_angle = (1.0 - input_value) * starting_angle / 2.0
-	print(max_angle)
 	var front_direction = _targetting.get_direction()
 	for _bullet_index in bullet_count:
 		var angle = deg2rad(rand_range(-max_angle, max_angle))
