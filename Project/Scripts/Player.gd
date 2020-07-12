@@ -63,6 +63,7 @@ func bullet_hit(damage):
 		return
 
 	heat += damage
+	$PlayerHitSound.play()
 	emit_signal("damaged", damage, heat)
 
 	if heat >= max_heat:
