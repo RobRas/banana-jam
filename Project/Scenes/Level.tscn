@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/ShotgunSmoke.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/GooExplosion.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/RepairDrop.tscn" type="PackedScene" id=13]
 
 [node name="Level" type="Node2D" groups=[
 "World",
@@ -22,6 +23,7 @@ GooExplosion = ExtResource( 12 )
 ShotgunSmoke = ExtResource( 11 )
 Homer = ExtResource( 3 )
 Flanker = ExtResource( 9 )
+RepairDrop = ExtResource( 13 )
 
 [node name="Player" parent="." groups=[
 "player",
@@ -71,13 +73,9 @@ show_behind_parent = true
 position = Vector2( 512.11, 300.303 )
 texture = ExtResource( 8 )
 
-[node name="Homer" parent="." instance=ExtResource( 3 )]
-
 [node name="FlankerSpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
-
-[node name="Flanker" parent="." instance=ExtResource( 9 )]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
 [connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Baddies/Die1Hit.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Baddies/CircleApproach.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Baddies/CircleApproach.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Guns/EnemySingleShot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 
@@ -18,3 +18,4 @@ script = ExtResource( 3 )
 
 [node name="EnemySingleShot" parent="." index="6" instance=ExtResource( 4 )]
 [connection signal="area_entered" from="Area2D" to="Die1Hit" method="_on_Area2D_area_entered"]
+[connection signal="Baddie_dead" from="Die1Hit" to="." method="_on_Baddie_dead"]
