@@ -34,8 +34,8 @@ func _on_Player_part_repaired(part_name):
 
 
 func _on_Player_critical_status():
-	$StatsContainer/Stats/Heat_Module/CenterContainer.HeatBar.set_danger(true)
+	$StatsContainer/Stats/Heat_Module/CenterContainer/HeatBar.set_danger(true)
 
 
 func _on_Player_critical_repaired():
-	$StatsContainer/Stats/Heat_Module/CenterContainer.HeatBar.set_danger(false)
+	$StatsContainer/Stats/Heat_Module/CenterContainer/HeatBar.set_danger(false)

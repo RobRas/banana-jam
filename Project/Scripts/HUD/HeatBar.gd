@@ -21,10 +21,10 @@ func set_danger(danger):
 		texture_progress = _default_bar_texture
 		modulate = Color.white
 		rect_scale = Vector2(1.0, 1.0)
-		$Up.stop()
-		$Down.stop()
-		$FlashUp.stop()
-		$FlashDown.stop()
+		$Up.stop_all()
+		$Down.stop_all()
+		$FlashUp.stop_all()
+		$FlashDown.stop_all()
 
 func _get_value(vals):
 	var i = value / max_value

@@ -17,7 +17,6 @@ signal blown_up
 signal critical_status
 signal critical_repaired
 
-
 var velocity = Vector2()
 var additional_velocity = Vector2()
 var forward

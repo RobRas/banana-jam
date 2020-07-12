@@ -35,3 +35,8 @@ func shake(period, magnitude, rot, duration):
 
 func _on_Player_part_broken(break_node):
 	shake(0.07, Vector2(70, 70), 14.0, 0.8)
+
+
+func _on_Player_damaged(damage, total):
+	print("??'")
+	shake(0.07, Vector2(20, 20), 5.0, 0.3)

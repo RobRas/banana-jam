@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/HUD/CameraShake.gd" type="Script" id=1]
+
+[node name="CameraShake" type="Node2D"]
+script = ExtResource( 1 )
+period = 0.8
+magnitude = Vector2( 80, 80 )
+rot = 16.0

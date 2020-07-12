@@ -78,7 +78,9 @@ tile_data = PoolIntArray( -1769520, 0, 0, -1769519, 0, 0, -1769518, 0, 0, -17695
 script = ExtResource( 18 )
 to_follow_path = NodePath("../Player")
 
-[node name="Camera2D" type="Camera2D" parent="CameraFollow"]
+[node name="Camera2D" type="Camera2D" parent="CameraFollow" groups=[
+"camera",
+]]
 rotating = true
 current = true
 zoom = Vector2( 1.1, 1.1 )
@@ -92,6 +94,7 @@ script = ExtResource( 17 )
 [connection signal="blown_up" from="Player" to="." method="_on_Player_blown_up"]
 [connection signal="critical_repaired" from="Player" to="CanvasLayer/HUD" method="_on_Player_critical_repaired"]
 [connection signal="critical_status" from="Player" to="CanvasLayer/HUD" method="_on_Player_critical_status"]
+[connection signal="damaged" from="Player" to="CameraFollow/Camera2D" method="_on_Player_damaged"]
 [connection signal="damaged" from="Player" to="CanvasLayer/HUD" method="_on_Player_damaged"]
 [connection signal="overheated" from="Player" to="CanvasLayer/HUD" method="_on_Player_overheated"]
 [connection signal="part_broken" from="Player" to="CameraFollow/Camera2D" method="_on_Player_part_broken"]
