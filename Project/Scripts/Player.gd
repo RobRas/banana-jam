@@ -23,7 +23,7 @@ var _invulnerable = false
 
 func _ready():
 	$InvulnTimer.wait_time = invulnerability_time
-	
+
 	forward = $Forward
 	for ability in $Abilities.get_children():
 		ability.init(self)
@@ -46,10 +46,10 @@ func _physics_process(_delta):
 func bullet_hit(damage):
 	if _invulnerable:
 		return
-	
+
 	heat += damage
 	emit_signal("damaged", damage, heat)
-	
+
 	if heat >= max_heat:
 		heat = 0
 		emit_signal("overheated")
@@ -60,11 +60,11 @@ func scrap_hit(scrap, value):
 	scrap_value += value
 	emit_signal("scrap_gained", value, scrap_value)
 	scrap.destroy()
-	
+
 	if scrap_value >= max_scrap:
 		scrap_value = 0
 		unbreak_part()
-	
+
 
 func break_part():
 	_current_breaks += 1
@@ -73,7 +73,7 @@ func break_part():
 		emit_signal("blown_up")
 		queue_free()
 		return
-		
+
 	var part_name = $Abilities.break_random()
 	emit_signal("part_broken", part_name)
 	$BrokenEqSound.play()

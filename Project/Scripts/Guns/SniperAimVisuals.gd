@@ -30,6 +30,10 @@ func _process(delta):
 	$Right.rotation_degrees = global_rotation - angle / 2.0
 
 
+func unequip():
+	_holding = false
+	visible = false
+
 
 func _on_MouseHoldAndRelease_hold_started():
 	_holding = true

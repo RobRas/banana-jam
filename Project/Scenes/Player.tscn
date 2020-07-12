@@ -111,8 +111,8 @@ break_name = "Wobbly Wheels"
 position = Vector2( 37.6934, -7.03235 )
 script = ExtResource( 7 )
 max_speed = 350.0
-acceleration = 500.0
-friction = 500.0
+acceleration = 900.0
+friction = 900.0
 
 [node name="BreakMovementSpeed" type="Node2D" parent="Abilities/Movement"]
 position = Vector2( -5.09619, -13.4355 )
@@ -124,7 +124,7 @@ max_speed_modifier = Vector2( 0.2, 1.2 )
 [node name="AddGlobalDirectionMovement" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 14 )
 break_name = "Broken Compass"
-speed = 80.0
+speed = 150.0
 
 [node name="AddFacingDirectionMovement" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 15 )
