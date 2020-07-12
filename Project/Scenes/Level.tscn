@@ -74,7 +74,7 @@ scale_amount = 0.5
 
 [node name="Background" type="Sprite" parent="."]
 show_behind_parent = true
-position = Vector2( 512.18, 303.98 )
+position = Vector2( 652.61, 329.207 )
 texture = ExtResource( 8 )
 
 [node name="FlankerSpawnTimer" type="Timer" parent="."]

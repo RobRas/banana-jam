@@ -69,11 +69,13 @@ func break_part():
 	print("WHYYYY")
 	var part_name = $Abilities.break_random()
 	emit_signal("part_broken", part_name)
+	$BrokenEqSound.play()
 
 # Try to do the opposite of breakage
 func unbreak_part():
 	print("Player: Unbreak_part()")
 	var part_name = $Abilities.unbreak_part()
+	$RepairSound.play()
 
 func _on_Area2D_area_entered(area):
 	if area.get_parent().get_script().get_path().get_file() == "RepairDrop":
