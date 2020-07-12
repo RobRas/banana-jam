@@ -3,12 +3,15 @@ extends KinematicBody2D
 export(int) var max_heat = 10
 export(int) var max_scrap = 20
 export(float) var invulnerability_time = 5.0
+export(int) var breaks_to_die = 8
+var _current_breaks = 0
 
 signal damaged(damage)
 signal overheated()
 signal part_broken(part_name)
 signal scrap_gained(amount, total)
 signal part_repaired(part_name)
+signal blown_up
 
 var velocity = Vector2()
 var additional_velocity = Vector2()
@@ -64,13 +67,20 @@ func scrap_hit(scrap, value):
 	
 
 func break_part():
-	print("WHYYYY")
+	_current_breaks += 1
+	if _current_breaks >= breaks_to_die:
+		print("boom.")
+		emit_signal("blown_up")
+		queue_free()
+		return
+		
 	var part_name = $Abilities.break_random()
 	emit_signal("part_broken", part_name)
 	$BrokenEqSound.play()
 
 # Try to do the opposite of breakage
 func unbreak_part():
+	_current_breaks -= 1
 	var part_name = $Abilities.unbreak_part()
 	emit_signal("part_repaired", part_name)
 	$RepairSound.play()

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal hit(body)
 
+export(SpriteFrames) var sprite_frames
 export(int) var damage = 1
 export(float) var kill_time
 
@@ -9,6 +10,7 @@ var _velocity = Vector2()
 
 
 func _ready():
+	$Sprite.frames = sprite_frames
 	$KillTimer.wait_time = kill_time
 	$KillTimer.start()
 

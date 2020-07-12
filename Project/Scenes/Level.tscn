@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Scenes/Scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Baddies/Homer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art Assets/Audio/MainThemeLoop.ogg" type="AudioStream" id=4]
