@@ -121,10 +121,12 @@ func _set_invulnerable():
 		return
 	_invulnerable = true
 	$InvulnTimer.start()
+	$Sprite.modulate=Color(0.05,0.37,1,1)
 
 
 func _on_InvulnTimer_timeout():
 	_invulnerable = false
+	$Sprite.modulate=Color(1,1,1,1)
 
 func get_max_speed():
 	return $Abilities/Movement.max_speed
