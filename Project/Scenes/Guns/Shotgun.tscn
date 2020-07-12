@@ -28,12 +28,13 @@ script = ExtResource( 8 )
 [node name="ShotgunKnockback" type="Node2D" parent="Breaks" index="0"]
 position = Vector2( -3, 0 )
 script = ExtResource( 7 )
-break_name = "Shotgun Kickback"
+break_name = "Heavy Kickback"
 
 [node name="SpeedTween" type="Tween" parent="Breaks/ShotgunKnockback" index="0"]
 
 [node name="BiggerSpread" type="Node2D" parent="Breaks" index="1"]
 script = ExtResource( 9 )
+angle_increase = 70.0
 spread_path = NodePath("../../ShootSpread")
 
 [node name="AmmoKill" type="Node2D" parent="Breaks" index="2"]
@@ -42,7 +43,7 @@ script = ExtResource( 10 )
 [node name="GunSound" parent="." index="4"]
 stream = ExtResource( 6 )
 volume_db = -1.0
-[connection signal="shot" from="ShootSpread" to="." method="_on_shot"]
 [connection signal="shot" from="ShootSpread" to="Breaks/AmmoKill" method="_on_ShootSpread_shot"]
+[connection signal="shot" from="ShootSpread" to="." method="_on_shot"]
 [connection signal="shot_input" from="MouseClick" to="Breaks/ShotgunKnockback" method="_on_MouseClick_shot_input"]
 [connection signal="shot_input" from="MouseClick" to="ShootSpread" method="_on_shot_input"]

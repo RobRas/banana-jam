@@ -26,7 +26,7 @@ func set_kill_time(new_kill_time):
 func _physics_process(delta):
 	var collision = move_and_collide(_velocity * delta)
 	if collision:
-		_velocity = collision.normal * _velocity.length()
+		_velocity = collision.normal * _velocity.length() * 0.8
 		global_rotation = Vector2(1,0).angle_to(collision.normal)
 
 func _on_KillTimer_timeout():

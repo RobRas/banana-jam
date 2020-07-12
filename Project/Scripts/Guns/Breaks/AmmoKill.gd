@@ -4,7 +4,7 @@ export(String) var break_name = "Crumbling Pellets"
 export(bool) var broken
 export(Vector2) var lifetime = Vector2(0.05, 0.5)
 
-var _broken = true
+var _broken = false
 var _equipped = false
 
 

@@ -114,34 +114,34 @@ region = Rect2( 704, 0, 32, 32 )
 atlas = ExtResource( 2 )
 region = Rect2( 736, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 2 )
 region = Rect2( 768, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 2 )
 region = Rect2( 800, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 2 )
 region = Rect2( 832, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 2 )
 region = Rect2( 864, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 2 )
 region = Rect2( 896, 0, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=36]
+[sub_resource type="SpriteFrames" id=31]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
 "loop": true,
 "name": "ready",
 "speed": 5.0
@@ -260,18 +260,16 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponsContainer"]
 margin_right = 1024.0
-margin_bottom = 100.0
+margin_bottom = 64.0
 alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="WeaponsContainer/VBoxContainer"]
-margin_top = 18.0
 margin_right = 1024.0
-margin_bottom = 18.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="WeaponsContainer/VBoxContainer"]
-margin_top = 22.0
+margin_top = 4.0
 margin_right = 1024.0
-margin_bottom = 82.0
+margin_bottom = 64.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -383,15 +381,16 @@ custom_fonts/font = ExtResource( 14 )
 text = "4"
 align = 1
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="WeaponsContainer/VBoxContainer/HBoxContainer"]
+[node name="CooldownSprite" type="AnimatedSprite" parent="WeaponsContainer/VBoxContainer/HBoxContainer"]
+visible = false
 position = Vector2( 620.709, 21.8752 )
 scale = Vector2( 3, 3 )
-frames = SubResource( 36 )
-frame = 9
+frames = SubResource( 31 )
+frame = 7
 speed_scale = 2.5
 playing = true
 
-[node name="TextureRect" type="TextureRect" parent="WeaponsContainer/VBoxContainer/HBoxContainer/AnimatedSprite"]
+[node name="TextureRect" type="TextureRect" parent="WeaponsContainer/VBoxContainer/HBoxContainer/CooldownSprite"]
 show_behind_parent = true
 anchor_top = -0.00304174
 anchor_bottom = -0.00304174

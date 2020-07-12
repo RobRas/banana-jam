@@ -3,7 +3,7 @@ extends Node2D
 export(String) var break_name = "Too Metal Jackets"
 export(bool) var broken
 
-var _broken = true
+var _broken = false
 var _equipped = false
 
 
