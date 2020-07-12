@@ -5,8 +5,6 @@
 [ext_resource path="res://Scenes/Baddies/Die1Hit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/EnemySingleShot.tscn" type="PackedScene" id=4]
 
-
-
 [node name="Homer" instance=ExtResource( 1 )]
 damage_node_path = NodePath("Die1Hit")
 
