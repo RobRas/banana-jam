@@ -132,9 +132,11 @@ break_name = "No Brakes"
 modifier = 0.1
 
 [node name="BreakMovementAcceleration" type="Node2D" parent="Abilities/Movement"]
-position = Vector2( 0, 3.24304 )
+position = Vector2( -22.855, -7.30548 )
 script = ExtResource( 17 )
 break_name = "Shredded Treads"
+accel_modifier = 0.4
+friction_modifier = 0.7
 
 [node name="RandomJump" type="Node2D" parent="Abilities/Movement"]
 position = Vector2( -38.6777, -24.8034 )
@@ -152,9 +154,9 @@ wait_time = 4.0
 [node name="Guns" type="Node2D" parent="Abilities"]
 script = ExtResource( 19 )
 
-[node name="Shotgun" parent="Abilities/Guns" instance=ExtResource( 3 )]
-
 [node name="Gatling" parent="Abilities/Guns" instance=ExtResource( 20 )]
+
+[node name="Shotgun" parent="Abilities/Guns" instance=ExtResource( 3 )]
 
 [node name="Sniper" parent="Abilities/Guns" instance=ExtResource( 21 )]
 

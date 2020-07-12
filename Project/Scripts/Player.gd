@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal hit
+signal part_broken(part_name)
 
 var velocity = Vector2()
 var additional_velocity = Vector2()
@@ -32,4 +33,9 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Break_body_entered(body):
-	$Abilities.break_random()
+	break_part()
+
+func break_part():
+	print("Break_body_entered")
+	var part_name = $Abilities.break_random()
+	emit_signal("part_broken", part_name)

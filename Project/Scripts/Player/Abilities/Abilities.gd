@@ -8,4 +8,4 @@ func break_random():
 			breakable_types.push_back(break_type)
 	
 	var i = randi() % breakable_types.size()
-	breakable_types[i].break_random()
+	return breakable_types[i].break_random()

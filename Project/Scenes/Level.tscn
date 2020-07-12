@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,8 +12,9 @@
 [ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/ShotgunSmoke.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/GooExplosion.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=13]
 [ext_resource path="res://icon.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/GatlingSmoke.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96.1767, 96.6889 )
@@ -25,7 +26,7 @@ script = ExtResource( 1 )
 Baddie = ExtResource( 10 )
 GooExplosion = ExtResource( 12 )
 ShotgunSmoke = ExtResource( 11 )
-GatlingSmoke = ExtResource( 13 )
+GatlingSmoke = ExtResource( 15 )
 Homer = ExtResource( 3 )
 Flanker = ExtResource( 9 )
 
@@ -87,6 +88,7 @@ autostart = true
 
 [node name="Break!" type="Area2D" parent="."]
 position = Vector2( 149.931, -171.698 )
+collision_layer = 0
 
 [node name="Sprite2" type="Sprite" parent="Break!"]
 scale = Vector2( 3, 3 )
@@ -95,6 +97,7 @@ texture = ExtResource( 14 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Break!"]
 shape = SubResource( 1 )
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="part_broken" from="Player" to="CanvasLayer/HUD" method="_on_Player_part_broken"]
 [connection signal="timeout" from="HomerSpawnTimer" to="." method="_on_HomerSpawnTimer_timeout"]
 [connection signal="timeout" from="FlankerSpawnTimer" to="." method="_on_FlankerSpawnTimer_timeout"]
 [connection signal="body_entered" from="Break!" to="Player" method="_on_Break_body_entered"]
