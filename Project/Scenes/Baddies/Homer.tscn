@@ -8,9 +8,9 @@
 [node name="Homer" instance=ExtResource( 1 )]
 damage_node_path = NodePath("Die1Hit")
 
-[node name="Rush" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Die1Hit" parent="." index="3" instance=ExtResource( 3 )]
 
-[node name="Die1Hit" parent="." index="4" instance=ExtResource( 3 )]
+[node name="EnemySingleShot" parent="." index="4" instance=ExtResource( 4 )]
 
-[node name="EnemySingleShot" parent="." index="5" instance=ExtResource( 4 )]
+[node name="Rush" parent="." index="5" instance=ExtResource( 2 )]
 [connection signal="Baddie_dead" from="Die1Hit" to="." method="_on_Baddie_dead"]

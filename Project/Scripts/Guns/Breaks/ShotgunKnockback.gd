@@ -21,10 +21,6 @@ func init(player):
 
 func set_broken(broken):
 	_broken = broken
-	if _broken:
-		print("Break: " + break_name + "!")
-	else:
-		print("Repaired: " + break_name + "!")
 
 func _process(delta):
 	if not _broken: 
