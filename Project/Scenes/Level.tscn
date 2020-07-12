@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,12 +12,7 @@
 [ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/ShotgunSmoke.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/GooExplosion.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/RepairDrop.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/GatlingSmoke.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Art Assets/Tilemap/TileSet.tres" type="TileSet" id=16]
-[ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=17]
-[ext_resource path="res://icon.png" type="Texture" id=18]
 [ext_resource path="res://Scenes/GatlingSmoke.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/RepairDrop.tscn" type="PackedScene" id=20]
 
@@ -31,7 +26,7 @@ script = ExtResource( 1 )
 Baddie = ExtResource( 10 )
 GooExplosion = ExtResource( 12 )
 ShotgunSmoke = ExtResource( 11 )
-GatlingSmoke = ExtResource( 15 )
+GatlingSmoke = ExtResource( 19 )
 Homer = ExtResource( 3 )
 Flanker = ExtResource( 9 )
 RepairDrop = ExtResource( 16 )
@@ -90,7 +85,7 @@ autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 13 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 20 )]
 
 [node name="Break!" type="Area2D" parent="."]
 position = Vector2( 149.931, -171.698 )
@@ -98,7 +93,6 @@ collision_layer = 0
 
 [node name="Sprite2" type="Sprite" parent="Break!"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Break!"]
 shape = SubResource( 1 )
