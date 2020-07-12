@@ -6,6 +6,7 @@ export(PackedScene) var break_label
 func _ready():
 	var player = get_tree().get_nodes_in_group("players")[0]
 	$StatsContainer/Stats/Heat_Module/CenterContainer/HeatBar.max_value = player.max_heat
+	$StatsContainer/Stats/Heat_Module/CenterContainer/HeatBar.value = player.heat
 	$StatsContainer/Stats/ScrapModule/CenterContainer/ScrapBar.max_value = player.max_scrap
 
 func _on_Player_part_broken(break_node):

@@ -20,7 +20,7 @@ signal critical_repaired
 var velocity = Vector2()
 var additional_velocity = Vector2()
 var forward
-var heat = 0
+var heat = 7
 
 var scrap_value = 0
 var _invulnerable = false
