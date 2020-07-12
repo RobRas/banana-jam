@@ -58,6 +58,8 @@ func break_random():
 	
 	var child_index = randi() % breakable_children.size()
 	breakable_children[child_index].set_broken(true)
+	print("Aim")
+	return breakable_children[child_index].break_name
 	
 
 func set_speed(new_speed):

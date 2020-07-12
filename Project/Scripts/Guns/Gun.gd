@@ -25,11 +25,11 @@ func unequip():
 
 func break_random():
 	if has_node("Breaks"):
-		$Breaks.break_random()
+		return $Breaks.break_random()
 
 func is_fully_broken():
 	if not has_node("Breaks"):
-		return false
+		return true
 	return $Breaks.is_fully_broken()
 
 func _on_shot(bullet):

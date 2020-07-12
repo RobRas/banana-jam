@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/UglyDynamicFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/HUD/BreakLabel.gd" type="Script" id=2]
+
+[node name="BreakLabel" type="Label"]
+anchor_right = 0.468
+margin_left = 6.11346
+margin_right = 191.113
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "Broken Heart"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Movement" type="Tween" parent="."]
+__meta__ = {
+"_editor_description_": "Broken Heart"
+}
+
+[node name="Shake" type="Tween" parent="."]
+
+[node name="Flash" type="Tween" parent="."]
