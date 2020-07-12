@@ -61,7 +61,7 @@ func scrap_hit(scrap, value):
 	emit_signal("scrap_gained", value, scrap_value)
 	scrap.destroy()
 	
-	if scrap_value >= 5:
+	if scrap_value >= max_scrap:
 		scrap_value = 0
 		unbreak_part()
 	

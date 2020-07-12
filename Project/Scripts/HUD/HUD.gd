@@ -28,3 +28,6 @@ func _on_Player_overheated():
 
 func _on_Player_part_repaired(part_name):
 	$StatsContainer/Stats/ScrapModule/CenterContainer/ScrapBar.value = 0
+	var node_to_delete = $BreaksContainer/Breaks.get_child(0)
+	$BreaksContainer/Breaks.remove_child(node_to_delete)
+	node_to_delete.queue_free()

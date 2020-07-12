@@ -13,8 +13,6 @@
 [ext_resource path="res://Fonts/UglyDynamicFont.tres" type="DynamicFont" id=14]
 [ext_resource path="res://Scenes/HUD/BreakLabel.tscn" type="PackedScene" id=15]
 
-
-
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
 
@@ -263,8 +261,3 @@ margin_left = -200.0
 margin_top = 60.0
 margin_right = -15.0
 margin_bottom = 580.0
-
-[node name="BreakLabel" parent="BreaksContainer/Breaks" instance=ExtResource( 15 )]
-anchor_right = 0.0
-margin_left = 0.0
-margin_right = 185.0

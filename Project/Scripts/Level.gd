@@ -7,6 +7,7 @@ export (PackedScene) var GatlingSmoke
 export (PackedScene) var Homer
 export (PackedScene) var Flanker
 export (PackedScene) var RepairDrop
+export (PackedScene) var GameOverScene
 
 signal player_heal
 
@@ -80,3 +81,7 @@ func _on_Baddie_dead(drop_value, drop_position):
 	var repair_drop = RepairDrop.instance()
 	add_child(repair_drop)
 	repair_drop.init(drop_value, drop_position)
+
+
+func _on_Player_blown_up():
+	get_tree().change_scene("res://Scenes/Death Splash.tscn")
