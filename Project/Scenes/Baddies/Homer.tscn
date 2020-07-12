@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Baddies/Rush.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Baddies/Die1Hit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/EnemySingleShot.tscn" type="PackedScene" id=4]
+
+[node name="Homer" instance=ExtResource( 1 )]
+damage_node_path = NodePath("Die1Hit")
+
+[node name="Die1Hit" parent="." index="3" instance=ExtResource( 3 )]
+
+[node name="EnemySingleShot" parent="." index="4" instance=ExtResource( 4 )]
+
+[node name="Rush" parent="." index="5" instance=ExtResource( 2 )]
+[connection signal="Baddie_dead" from="Die1Hit" to="." method="_on_Baddie_dead"]

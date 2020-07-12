@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Baddies/Die1Hit.gd" type="Script" id=1]
+
+[node name="Die1Hit" type="Node"]
+script = ExtResource( 1 )

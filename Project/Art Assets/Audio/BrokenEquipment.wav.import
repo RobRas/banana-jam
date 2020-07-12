@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BrokenEquipment.wav-6a822d8c6511bb01bcc559a3e31100d7.sample"
+
+[deps]
+
+source_file="res://Art Assets/Audio/BrokenEquipment.wav"
+dest_files=[ "res://.import/BrokenEquipment.wav-6a822d8c6511bb01bcc559a3e31100d7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

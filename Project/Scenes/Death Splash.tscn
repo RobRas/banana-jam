@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Art Assets/Splash Screens/Death Screen/Death Screen Splash Frame 2.png" type="Texture" id=1]
+[ext_resource path="res://Art Assets/Splash Screens/Death Screen/Death Screen Frame 1.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/DeathSplash.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 1025, 600 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 1025, 600 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "Flashing",
+"speed": 3.0
+} ]
+
+[node name="Death Splash" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CenterContainer"]
+position = Vector2( 513.682, 299.999 )
+frames = SubResource( 3 )
+animation = "Flashing"
+playing = true
