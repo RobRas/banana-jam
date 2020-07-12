@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=13]
 [ext_resource path="res://icon.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/GatlingSmoke.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/RepairDrop.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96.1767, 96.6889 )
@@ -29,6 +30,7 @@ ShotgunSmoke = ExtResource( 11 )
 GatlingSmoke = ExtResource( 15 )
 Homer = ExtResource( 3 )
 Flanker = ExtResource( 9 )
+RepairDrop = ExtResource( 16 )
 
 [node name="Player" parent="." groups=[
 "player",

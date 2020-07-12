@@ -6,11 +6,15 @@ signal part_broken(part_name)
 var velocity = Vector2()
 var additional_velocity = Vector2()
 var forward
+export(int) var health = 10
 
 func _ready():
 	forward = $Forward
 	for ability in $Abilities.get_children():
 		ability.init(self)
+	
+	# Listen for repair pickup repairing from Level
+	get_tree().get_nodes_in_group("World")[0].connect("player_heal", self, "_on_player_heal")
 
 func _process(delta):
 	if velocity.length()>0:
@@ -31,6 +35,9 @@ func _physics_process(_delta):
 func _on_Area2D_body_entered(body):
 	emit_signal("hit")
 
+func _on_player_heal(amount_healed):
+	health += amount_healed
+	print(health)
 
 func _on_Break_body_entered(body):
 	break_part()
