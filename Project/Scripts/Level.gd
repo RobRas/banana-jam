@@ -81,6 +81,7 @@ func _gatling_smoke():
 	gsmoke.emitting=true
 	gsmoke.one_shot=true
 	
+	
 
 # Emitted in Baddie>#HitsToDie node
 func _on_Baddie_dead(drop_value, drop_position):
