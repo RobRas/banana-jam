@@ -13,6 +13,7 @@ bullet_scene = ExtResource( 5 )
 bullet_speed = 3500.0
 
 [node name="MouseHoldAndRelease" parent="." index="0" instance=ExtResource( 2 )]
+cooldown = 0.6
 
 [node name="ShootRandom" parent="." index="1" instance=ExtResource( 3 )]
 targetting_path = NodePath("../ForwardTargetting")
