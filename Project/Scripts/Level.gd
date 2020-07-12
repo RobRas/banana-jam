@@ -31,9 +31,9 @@ func _on_HomerSpawnTimer_timeout():
 	homer.connect("Baddie_dead",self,"_on_Baddie_dead")
 	
 	rand.randomize()
-	var x = rand.randf_range(-1500,1500)
+	var x = rand.randf_range(-1400,1400)
 	rand.randomize()
-	var y = rand.randf_range(-900,900)
+	var y = rand.randf_range(-800,800)
 	homer.position.x = x
 	homer.position.y = y
 
@@ -43,9 +43,9 @@ func _on_FlankerSpawnTimer_timeout():
 	flanker.connect("Baddie_dead",self,"_on_Baddie_dead")
 	
 	rand.randomize()
-	var x = rand.randf_range(-1500,1500)
+	var x = rand.randf_range(-1400,1400)
 	rand.randomize()
-	var y = rand.randf_range(-900,900)
+	var y = rand.randf_range(-800,800)
 	flanker.position.x = x
 	flanker.position.y = y
 	
