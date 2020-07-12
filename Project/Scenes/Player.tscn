@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Art Assets/Characters/MainMechBoosting.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Scripts/Player/Abilities/FaceMouse/BreakRotationOffset.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/Player/Abilities/FaceMouse/BreakRotationStability.gd" type="Script" id=12]
 [ext_resource path="res://Scripts/Player/Abilities/Movement/BreakMovementSpeed.gd" type="Script" id=13]
-[ext_resource path="res://Scripts/Player/Abilities/Movement/AddGlobalDirectionMovement.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/Player/Abilities/Movement/AddFacingDirectionMovement.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/Player/Abilities/Movement/BreakMovementFriction.gd" type="Script" id=16]
 [ext_resource path="res://Scripts/Player/Abilities/Movement/BreakMovementAcceleration.gd" type="Script" id=17]
@@ -120,11 +119,6 @@ script = ExtResource( 13 )
 break_name = "Failing Engine"
 speed = 200.0
 max_speed_modifier = Vector2( 0.2, 1.2 )
-
-[node name="AddGlobalDirectionMovement" type="Node2D" parent="Abilities/Movement"]
-script = ExtResource( 14 )
-break_name = "Broken Compass"
-speed = 150.0
 
 [node name="AddFacingDirectionMovement" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 15 )

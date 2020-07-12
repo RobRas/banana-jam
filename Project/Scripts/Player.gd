@@ -42,6 +42,12 @@ func _process(delta):
 
 func _physics_process(_delta):
 	move_and_slide(velocity + additional_velocity)
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if velocity.dot(collision.normal) > 0:
+			var ang = Vector2(1, 0).angle_to(collision.normal)
+			var to_remove = velocity.rotated(ang)
+			velocity -= Vector2(to_remove.x, 0)
 
 func bullet_hit(damage):
 	if _invulnerable:
