@@ -6,6 +6,7 @@
 [ext_resource path="res://Art Assets/Audio/MainThemeLoop.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Art Assets/Audio/CriticalOverHeatLoop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Art Assets/Audio/OverHeatLoop.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Art Assets/Audio/BaddieDeath.wav" type="AudioStream" id=7]
 [ext_resource path="res://Art Assets/Tilemap/DesertBackgroundEnlarged.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Baddies/Flanker.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Baddies/Baddie.tscn" type="PackedScene" id=10]
@@ -89,6 +90,9 @@ drag_margin_bottom = 0.1
 script = ExtResource( 17 )
 
 [node name="ShakeTween" type="Tween" parent="CameraFollow/Camera2D"]
+[node name="BaddieDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 8.0
 [connection signal="blown_up" from="Player" to="." method="_on_Player_blown_up"]
 [connection signal="critical_repaired" from="Player" to="CanvasLayer/HUD" method="_on_Player_critical_repaired"]
 [connection signal="critical_status" from="Player" to="CanvasLayer/HUD" method="_on_Player_critical_status"]

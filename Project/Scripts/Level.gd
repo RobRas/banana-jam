@@ -72,7 +72,7 @@ func _on_Baddie_dead(drop_value, drop_position):
 	var repair_drop = RepairDrop.instance()
 	add_child(repair_drop)
 	repair_drop.init(drop_value, drop_position)
-	
+	$BaddieDead.play()
 	var explode = GooExplosion.instance()
 	add_child(explode)
 	explode.position=drop_position
