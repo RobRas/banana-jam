@@ -85,7 +85,7 @@ turn_speed = 320.0
 
 [node name="BreakRotationSpeed" type="Node2D" parent="Abilities/Aim"]
 script = ExtResource( 9 )
-break_name = "6Laggy Steering"
+break_name = "Laggy Steering"
 speed_modifier = 0.4
 
 [node name="BreakRotationDirection" type="Node2D" parent="Abilities/Aim"]
@@ -95,7 +95,7 @@ modifier = 0.2
 
 [node name="BreakRotationOffset" type="Node2D" parent="Abilities/Aim"]
 script = ExtResource( 11 )
-break_name = "Offset Guns"
+break_name = "Stuck Cockpit"
 
 [node name="BreakRotationStability" type="Node2D" parent="Abilities/Aim"]
 scale = Vector2( 1.00763, 1.0266 )
@@ -103,11 +103,11 @@ script = ExtResource( 12 )
 break_name = "Wobbly Wheels"
 
 [node name="Movement" type="Node2D" parent="Abilities"]
-position = Vector2( 50, 0 )
+position = Vector2( 37.6934, -7.03235 )
 script = ExtResource( 7 )
 max_speed = 350.0
-acceleration = 600.0
-friction = 600.0
+acceleration = 500.0
+friction = 500.0
 
 [node name="BreakMovementSpeed" type="Node2D" parent="Abilities/Movement"]
 position = Vector2( -5.09619, -13.4355 )
@@ -118,18 +118,18 @@ max_speed_modifier = Vector2( 0.2, 1.2 )
 
 [node name="AddGlobalDirectionMovement" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 14 )
-break_name = "Broken Gyro"
+break_name = "Broken Compass"
 speed = 80.0
 
 [node name="AddFacingDirectionMovement" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 15 )
-break_name = "Broken Thruster"
+break_name = "Haywire Thrusters"
 speed = 140.0
 
 [node name="BreakMovementFriction" type="Node2D" parent="Abilities/Movement"]
 script = ExtResource( 16 )
 break_name = "No Brakes"
-modifier = 0.05
+modifier = 0.1
 
 [node name="BreakMovementAcceleration" type="Node2D" parent="Abilities/Movement"]
 position = Vector2( 0, 3.24304 )

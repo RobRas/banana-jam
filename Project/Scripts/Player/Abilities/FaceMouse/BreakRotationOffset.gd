@@ -13,7 +13,6 @@ var _player
 
 func init(player):
 	_player = player
-	set_broken(broken)
 
 func set_broken(broken):
 	_broken = broken

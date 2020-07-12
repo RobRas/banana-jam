@@ -24,7 +24,7 @@ func break_random():
 		return false
 	
 	var child_index = randi() % breakable_children.size()
-	return breakable_children.set_broken(true)
+	breakable_children[child_index].set_broken(true)
 
 func is_fully_broken():
 	for child in get_children():

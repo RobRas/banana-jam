@@ -6,8 +6,6 @@ export(float) var modifier = 0.2
 
 var _broken = false
 
-func init(player):
-	set_broken(broken)
 
 func modify_velocity(velocity, forward):
 	return velocity
